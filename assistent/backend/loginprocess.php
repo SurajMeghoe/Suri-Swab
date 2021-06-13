@@ -30,7 +30,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 					$_SESSION['user_usernaam'] = $user_naam;
 					$_SESSION['user_iddistrict'] = $user_district;
 
-					header("Location: ../../login.php");
+					header("Location: ../view/dashboard.php");
 
 				}else {
 					header("Location: ../../index.php?error=Incorect User name or password&email=$usernaam");
