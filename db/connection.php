@@ -1,14 +1,14 @@
-<?php 
+<?php  
 
-$sName = "localhost";
-$uName = "root";
-$pass = "";
+$sname = "localhost";
+$uname = "root";
+$password = "";
+
 $db_name = "suriswab";
 
-try {
-    $conn = new PDO("mysql:host=$sName;dbname=$db_name", 
-                    $uName, $pass);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}catch(PDOException $e){
-  echo "Connection failed : ". $e->getMessage();
+$conn = mysqli_connect($sname, $uname, $password, $db_name);
+
+if (!$conn) {
+	echo "Connection Failed!";
+	exit();
 }

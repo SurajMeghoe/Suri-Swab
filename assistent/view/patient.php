@@ -1,6 +1,7 @@
 <?php
-include '../../db/connection.php';
+include '../../db/conn.php';
 session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -102,8 +103,13 @@ session_start();
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary" style="background: #29c2cc">
-                  <h4 class="card-title ">Simple Table</h4>
-                  <p class="card-category"> Here is a subtitle for this table</p>
+                  <h4 class="card-title ">Patient informatie
+                  <button type="button" class="btn btn-info float-right" data-toggle="modal" data-target="#add" style="background: #000000">
+                                patient toevoegen
+                            </button>
+                  </h4>
+                  <p class="card-category"> Gegevens van elk patient
+                  </p>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -113,121 +119,42 @@ session_start();
                           ID
                         </th>
                         <th>
-                          Name
+                          Naam
                         </th>
                         <th>
-                          Country
+                          Voornaam
                         </th>
                         <th>
-                          City
+                          geboortedatum
                         </th>
                         <th>
-                          Salary
+                          geslacht
                         </th>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>
-                            1
-                          </td>
-                          <td>
-                            Dakota Rice
-                          </td>
-                          <td>
-                            Niger
-                          </td>
-                          <td>
-                            Oud-Turnhout
-                          </td>
-                          <td class="text-primary">
-                            $36,738
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            2
-                          </td>
-                          <td>
-                            Minerva Hooper
-                          </td>
-                          <td>
-                            Curaçao
-                          </td>
-                          <td>
-                            Sinaai-Waas
-                          </td>
-                          <td class="text-primary">
-                            $23,789
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            3
-                          </td>
-                          <td>
-                            Sage Rodriguez
-                          </td>
-                          <td>
-                            Netherlands
-                          </td>
-                          <td>
-                            Baileux
-                          </td>
-                          <td class="text-primary">
-                            $56,142
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            4
-                          </td>
-                          <td>
-                            Philip Chaney
-                          </td>
-                          <td>
-                            Korea, South
-                          </td>
-                          <td>
-                            Overland Park
-                          </td>
-                          <td class="text-primary">
-                            $38,735
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            5
-                          </td>
-                          <td>
-                            Doris Greene
-                          </td>
-                          <td>
-                            Malawi
-                          </td>
-                          <td>
-                            Feldkirchen in Kärnten
-                          </td>
-                          <td class="text-primary">
-                            $63,542
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            6
-                          </td>
-                          <td>
-                            Mason Porter
-                          </td>
-                          <td>
-                            Chile
-                          </td>
-                          <td>
-                            Gloucester
-                          </td>
-                          <td class="text-primary">
-                            $78,615
-                          </td>
-                        </tr>
+                      <?php
+                      $sql = "SELECT * from patient where id_gebruikers = '".$_SESSION['user_id']."'";
+                      
+                      $result = $conn->query($sql);
+
+                                    if ($result->num_rows > 0) {
+                                        // output data of each row
+                                        while ($row = $result->fetch_assoc()) {
+                                    
+                      ?>
+                      <tr>
+                                                <td><?php echo $row['id_patient']; ?></td>
+                                                <td><?php echo $row['naam']; ?></td>
+                                                <td><?php echo $row['voornaam']; ?></td>
+                                                <td><?php echo $row['geboortedatum']; ?></td>
+                                                <td><?php echo $row['geslacht']; ?></td>
+                                                
+                      </tr>
+                                    <?php
+                                        }
+                                    } else {
+                                    }
+                                    ?>
                       </tbody>
                     </table>
                   </div>
@@ -238,6 +165,7 @@ session_start();
           </div>
         </div>
       </div>
+      
       <!-- page content eind -->
   <!--   Core JS Files   -->
   <script src="../../assets/js/core/jquery.min.js"></script>

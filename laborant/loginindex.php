@@ -18,7 +18,7 @@
   </head>
   <body>
 
-  <a href="../../index.php">
+  <a href="../index.php">
     <div class="col-2 offset-1" style="height: 20px; ">
                       <button class="btn1 mt-3 mb-5" name="assistent">laborant</button>
                     </div>
