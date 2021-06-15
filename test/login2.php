@@ -15,11 +15,8 @@ session_start();
 </head>
 <body>
 <h1> admin </h1>
-    <h2>Welcom <?=$_SESSION['usernaam']?></h2>
-	<h2>Welcom <?=$_SESSION['role']?></h2>
-	<h2>Welcom <?=$_SESSION['district']?></h2>
-	<h2>Welcom <?=$_SESSION['districtn']?></h2>
-	<h3><?php echo $_SESSION['usernaam']; ?> </h3>
+    <h2> <?=$_SESSION['id']?></h2>
+	<h3><?php echo $_SESSION['id']; ?> </h3>
     Click here to <a href = "./../admin/backend/logout.php">Logout</a>
     
 </body>

@@ -1,5 +1,5 @@
 <?php
-include '../../db/conn.php';
+include '../../db/connection.php';
 session_start();
 
 ?>
@@ -83,11 +83,12 @@ session_start();
                     Account
                   </p>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="#"><?php echo $_SESSION['user_usernaam']; ?></a>
-                  
+                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+                  <a class="dropdown-item" href="#"><?php echo $_SESSION['usernaam']; ?></a>
+                  <a class="dropdown-item" href="#"><?php echo $_SESSION['role']; ?></a>
+                  <a class="dropdown-item" href="#"><?php echo $_SESSION['districtn']; ?></a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="../backend/logout.php">Log out</a>
+                  <a class="dropdown-item" href="../../admin/backend/logout.php">Log out</a>
                 </div>
               </li>
             </ul>
@@ -133,7 +134,7 @@ session_start();
                       </thead>
                       <tbody>
                       <?php
-                      $sql = "SELECT * from patient where id_gebruikers = '".$_SESSION['user_id']."'";
+                      $sql = "SELECT * from patient where id_gebruikers = '".$_SESSION['id']."' AND id_district = '".$_SESSION['district']."'";
                       
                       $result = $conn->query($sql);
 
@@ -153,6 +154,7 @@ session_start();
                                     <?php
                                         }
                                     } else {
+                                      echo "error";
                                     }
                                     ?>
                       </tbody>

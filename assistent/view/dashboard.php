@@ -85,9 +85,11 @@ session_start();
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="#"><?php echo $_SESSION['user_usernaam']; ?></a>
+                  <a class="dropdown-item" href="#"><?php echo $_SESSION['usernaam']; ?></a>
+                  <a class="dropdown-item" href="#"><?php echo $_SESSION['role']; ?></a>
+                  <a class="dropdown-item" href="#"><?php echo $_SESSION['districtn']; ?></a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="../backend/logout.php">Log out</a>
+                  <a class="dropdown-item" href="../../admin/backend/logout.php">Log out</a>
                 </div>
               </li>
             </ul>

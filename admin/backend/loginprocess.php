@@ -32,8 +32,8 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['role
         	if ($row['password'] === $password && $row['role'] == $role) {
 				if ($row['role'] == "admin"){
 
-        		$_SESSION['name'] = $row['name'];
-        		$_SESSION['id'] = $row['id'];
+        		
+        		$_SESSION['id'] = $row['id_gebruiker'];
         		$_SESSION['role'] = $row['role'];
         		$_SESSION['usernaam'] = $row['usernaam'];
 				$_SESSION['district'] = $row['id_district'];
@@ -43,18 +43,18 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['role
 				}
 				else if ($row['role'] == "assistent")
 				{
-				$_SESSION['name'] = $row['name'];
-        		$_SESSION['id'] = $row['id'];
+				
+        		$_SESSION['id'] = $row['id_gebruiker'];
         		$_SESSION['role'] = $row['role'];
         		$_SESSION['usernaam'] = $row['usernaam'];
 				$_SESSION['district'] = $row['id_district'];
 				$_SESSION['districtn'] = $row['districtnaam'];
-                 header("Location: ../../test/login1.php");
+                 header("Location: ../../assistent/view/dashboard.php");
 				}
 				else if ($row['role'] == "laborant")
 				{
-				$_SESSION['name'] = $row['name'];
-        		$_SESSION['id'] = $row['id'];
+				
+        		$_SESSION['id'] = $row['id_gebruiker'];
         		$_SESSION['role'] = $row['role'];
         		$_SESSION['usernaam'] = $row['usernaam'];
 				$_SESSION['district'] = $row['id_district'];
