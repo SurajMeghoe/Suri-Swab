@@ -24,6 +24,8 @@ session_start();
   <link href="../../assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../../assets/demo/demo.css" rel="stylesheet" />
+  <!-- material icon -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body class="">
@@ -178,9 +180,12 @@ session_start();
                                                 <td><?php echo $row['geboortedatum']; ?></td>
                                                 <td><?php echo $row['geslacht']; ?></td>
                                                 <td>
-                                                    <a href="#" class="view"  data-id =" ' . $row['docent_id'] . '"><i class="material-icons text-success">launch</i></a>
-                                                    <a href="#" class="edit" data-id =" ' . $row['docent_id'] . '" ><i class="material-icons text-info">edit</i></a>
-                                                    
+                                               <input type="button" name="edit" value="Edit" id="<?php echo $row['id_patient']; ?>" class="btn btn-info btn-xs edit_data" /> 
+                                   
+                                                <!-- <a href="#" class="view" data-id="<?php echo $row['id_patient']; ?>"><i class="material-icons">visibility</i></a>
+                                                <a href="#" class="edit" data-id="<?php echo $row['id_patient']; ?>"><i class="material-icons text-info">edit</i></a>
+                                                <a href="#" class="download" data-id="<?php echo $row['id_patient']; ?>"><i class="material-icons">file_download</i></a>
+                                               -->
                                                 </td>
                                                 
                       </tr>
@@ -290,6 +295,10 @@ session_start();
   </div>
 </div>
   <!-- modal insert eind -->
+
+ 
+
+
   <!-- bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
@@ -300,6 +309,8 @@ session_start();
   <script src="../../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!-- all scripts -->
   <script src="../../scripts/script.php"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
+           
 <!--search box -->
 <script>
 function myFunction() {
@@ -324,8 +335,30 @@ function myFunction() {
   }
 }
 </script>
-  
-  
+<script>
+$(document).on('click', '.edit_data', function(){  
+           var employee_id = $(this).attr("'id_patient'");  
+           $.ajax({  
+                url:"../../assistent/backend/fetch_patient.php.php",  
+                method:"POST",  
+                data:{employee_id:employee_id},  
+                dataType:"json",  
+                success:function(data){  
+                     $('#patientnaam').val(data.patientnaam);  
+                     $('#patientvoornaam').val(data.patientvoornaam);  
+                     $('#nationaliteit').val(data.nationaliteit);  
+                     $('#idnummer').val(data.idnummer);  
+                     $('#adres').val(data.adres);  
+                     $('#gdatum').val(data.gdatum); 
+                     $('#huisarts').val(data.huisarts);  
+                     $('#gdatum').val(data.gdatum); 
+                     $('#odatum').val(data.odatum); 
+                     $('#insert').val("Update");  
+                     $('#patientModal').modal('show');  
+                }  
+           });  
+      }); 
+      </script>
 </body>
 
 </html>
