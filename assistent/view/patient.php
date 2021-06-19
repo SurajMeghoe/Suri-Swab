@@ -26,6 +26,10 @@ session_start();
   <link href="../../assets/demo/demo.css" rel="stylesheet" />
   <!-- material icon -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ <!-- data tables -->
+ <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+  
+  
 </head>
 
 <body class="">
@@ -66,7 +70,7 @@ session_start();
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;"> Patient</a>
+            <a class="navbar-brand" href="javascript:;">Patient</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -101,42 +105,38 @@ session_start();
       <!-- navbar top eind -->
 
 <!-- page content begin -->
-      <div class="content">
-        <div class="container-fluid">
-        <div class="row">
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
         <div class="col-md-12">
-        <?php if (isset($_GET['error'])) { ?>
-                <div class="alert alert-danger" role="alert" style="background: green">
-                <?=htmlspecialchars($_GET['error'])?>
+                    <?php if (isset($_GET['error'])) { ?>
+                            <div class="alert alert-danger" role="alert" style="background: green">
+                            <?=htmlspecialchars($_GET['error'])?>
+                          </div>
+                    <?php } ?>
               </div>
-                <?php } ?>
-        </div>
-        </div>
+          </div>
+
           <div class="row">
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary" style="background: #29c2cc">
-                <div class="row">
-                <div class="col-md-4">
-                  <h4 class="card-title ">Patient informatie</h4>
-                  <p class="card-category"> Gegevens van elk patient
-                  </p>
-                </div>
-                <div class="col-md-4">
-                <input type="text" value="" class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Search...">
-                </div>
-                <!-- <div class="col-md-2">
-                <button type="submit" class="btn btn-white btn-round btn-just-icon float-left">
-                  <i class="material-icons">search</i>
-                  <div class="ripple-container"></div>
-                </button>  
-                </div> -->
-<div class="col-md-4">
-           <button type="button" class="btn btn-primary float-right btn-dark" data-bs-toggle="modal" data-bs-target="#patientModal">
-             patient registratie
-                </button>
-                           </div>
-                           </div>   
+                  <div class="row">
+                    <div class="col-md-4">
+                        <h4 class="card-title ">Patient informatie</h4>
+                        <p class="card-category"> Gegevens van elk patient</p>
+                        
+                       </div>
+                          <div class="col-md-4">
+                              
+                          </div>
+                                         
+    
+    <div class="col-md-4 ">
+          <span class="pull-right"><a href="#patientModal" data-toggle="modal" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>patient registratie</a></span>
+               
+            </div>
+                </div>   
                   
                 </div>
                 <div class="card-body">
@@ -180,12 +180,10 @@ session_start();
                                                 <td><?php echo $row['geboortedatum']; ?></td>
                                                 <td><?php echo $row['geslacht']; ?></td>
                                                 <td>
-                                               <input type="button" name="edit" value="Edit" id="<?php echo $row['id_patient']; ?>" class="btn btn-info btn-xs edit_data" /> 
-                                   
-                                                <!-- <a href="#" class="view" data-id="<?php echo $row['id_patient']; ?>"><i class="material-icons">visibility</i></a>
-                                                <a href="#" class="edit" data-id="<?php echo $row['id_patient']; ?>"><i class="material-icons text-info">edit</i></a>
-                                                <a href="#" class="download" data-id="<?php echo $row['id_patient']; ?>"><i class="material-icons">file_download</i></a>
-                                               -->
+                                                <a href="#view<?php echo $row['id_patient']; ?>" data-toggle="modal" class="btn btn-primary material-icons">visibility</a>
+                                                 <?php include('../../assistent/modal/view_patient_modal.php'); ?>
+                                                <a href="#edit<?php echo $row['id_patient']; ?>" data-toggle="modal" class="btn btn-warning material-icons">edit</a>
+                                                <?php include('../../assistent/modal/edit_patient_modal.php'); ?>
                                                 </td>
                                                 
                       </tr>
@@ -205,98 +203,9 @@ session_start();
           </div>
         </div>
       </div>
+      <?php include('../../assistent/modal/add_patient_modal.php'); ?>
       
-      <!-- page content eind -->
-  <!-- modal insert begin-->
   
-  
-<div class="modal fade" id="patientModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Patient registratie</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <form action="../../assistent/backend/patientregistratie.php" method="POST">
-      <div class="modal-body">
-        
-<div class="row g-3">   
-          <div class="col-md-6">
-            <label for="patientnaam" class="form-label">Naam</label>
-            <input type="text" class="form-control" name="patientnaam" required>
-          </div>
-       <div class="col-md-6">
-          <label for="patientvoornaam" class="form-label">Voornaam</label>
-          <input type="text" class="form-control" name="patientvoornaam" required>
-       </div>
-    </div> 
-
-    <div class="row g-3">   
-          <div class="col-md-6">
-            <label for="nationaliteit" class="form-label">Nationaliteit</label>
-            <input type="text" class="form-control" name="nationaliteit" required>
-          </div>
-       <div class="col-md-6">
-          <label for="idnummer" class="form-label">ID_nummer</label>
-          <input type="text" class="form-control" name="idnummer" required>
-       </div>
-    </div>
-
-    <div class="row g-3">   
-          <div class="col-md-6">
-            <select class="form-select" aria-label="Default select example" name="rolepatient" required>
-              <option selected>Selecteer uw geslacht</option>
-              <option value="m">man</option>
-              <option value="v">vrouw</option>  
-            </select>
-          </div>
-       <div class="col-md-6">
-          <label for="adres" class="form-label">Adres</label>
-          <input type="text" class="form-control" name="adres" required>
-       </div>
-    </div>
-
-    <div class="row g-3">   
-          <div class="col-md-6">
-            <label for="gdatum" class="form-label">Geboorte datum</label>
-            <input type="date" class="form-control" name="gdatum" required>
-          </div>
-       <div class="col-md-6">
-          <label for="beroep" class="form-label">Beroep</label>
-          <input type="text" class="form-control" name="beroep" required>
-       </div>
-    </div>
-
-    <div class="row g-3">   
-          <div class="col-md-6">
-            <label for="huisarts" class="form-label">Huisarts</label>
-            <input type="text" class="form-control" name="huisarts" required>
-          </div>
-       <div class="col-md-6">
-          <label for="odatum" class="form-label">Datum onderzoek</label>
-          <input type="date" class="form-control" name="odatum" required>
-       </div>
-    </div>
-    <br>
-    <div class="row g-3">   
-          <div class="col-md-6">
-            <label for="huisarts" class="form-label">Onderzoeker</label>
-            <?=$_SESSION['usernaam']?>
-          </div>
-    </div>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" name="insertdata" class="btn btn-primary">Save Data</button>
-      </div>
-      </form>
-    </div>
-  </div>
-</div>
-  <!-- modal insert eind -->
-
- 
 
 
   <!-- bootstrap JS -->
@@ -307,58 +216,22 @@ session_start();
   <script src="../../assets/js/core/popper.min.js"></script>
   <script src="../../assets/js/core/bootstrap-material-design.min.js"></script>
   <script src="../../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+
+  <!--datatables bootstrap 4 -->
+  <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
+  <!--<script src="../../assets/js/jquery-3.5.1.js"></script>-->
+  <script>
+  $(document).ready(function() {
+    $('#myTable').DataTable();
+} );
+  </script>                            
+
+
   <!-- all scripts -->
   <script src="../../scripts/script.php"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
-           
-<!--search box -->
-<script>
-function myFunction() {
-  // Declare variables
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-
-  // Loop through all table rows, and hide those who don't match the search query
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[1];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-}
-</script>
-<script>
-$(document).on('click', '.edit_data', function(){  
-           var employee_id = $(this).attr("'id_patient'");  
-           $.ajax({  
-                url:"../../assistent/backend/fetch_patient.php.php",  
-                method:"POST",  
-                data:{employee_id:employee_id},  
-                dataType:"json",  
-                success:function(data){  
-                     $('#patientnaam').val(data.patientnaam);  
-                     $('#patientvoornaam').val(data.patientvoornaam);  
-                     $('#nationaliteit').val(data.nationaliteit);  
-                     $('#idnummer').val(data.idnummer);  
-                     $('#adres').val(data.adres);  
-                     $('#gdatum').val(data.gdatum); 
-                     $('#huisarts').val(data.huisarts);  
-                     $('#gdatum').val(data.gdatum); 
-                     $('#odatum').val(data.odatum); 
-                     $('#insert').val("Update");  
-                     $('#patientModal').modal('show');  
-                }  
-           });  
-      }); 
-      </script>
+         
+ 
 </body>
 
 </html>

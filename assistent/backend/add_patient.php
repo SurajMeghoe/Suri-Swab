@@ -24,18 +24,21 @@ if(isset($_POST['insertdata']))
 
                         if($query_run)
                         {
-                            header("Location: ../view/patient.php?error=succesvol");
+                           echo '<script type = "text/javascript">';
+                           echo 'alert("patient registratie succesvol");';
+                           echo 'window.location.href = "../view/patient.php" ';
+                           echo '</script>';
                         }
                         else
                         {
-                             header("Location: ../view/patient.php?error= niet succesvol");
+                             header("Location: ../view/patient.php?error= 2niet succesvol");
                         }
 
                     }
         
     else
 {
-     header("Location: ../view/patient.php?error= niet succesvol");
+     header("Location: ../view/patient.php?error= 1niet succesvol");
 }
 
 
