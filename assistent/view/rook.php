@@ -52,14 +52,14 @@ session_start();
               <p>patient</p>
             </a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="./triage.php" style="background-color: #29c2cc">
+          <li class="nav-item">
+            <a class="nav-link" href="./triage.php">
               <i class="material-icons">content_paste</i>
               <p>Triage </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./rook.php" >
+          <li class="nav-item active">
+            <a class="nav-link" href="./rook.php" style="background-color: #29c2cc">
               <i class="material-icons">smoking_rooms</i>
               <p>Rook patient</p>
             </a>
@@ -138,8 +138,7 @@ session_start();
                                          
     
     <div class="col-md-4 ">
-          <span class="pull-right"><a href="#triageModal" data-toggle="modal" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Triage registratie</a></span>
-               
+      
             </div>
                 </div>   
                   
@@ -158,18 +157,19 @@ session_start();
                           id nummer
                         </th>
                         <th>
+                          datum
+                        </th>
+                        <th>
                           rook
                         </th>
                         <th>
                           swab
                         </th>
-                        <th>
-                          acties
-                        </th>
+                        
                       </thead>
                       <tbody>
                       <?php
-                      $sql = "SELECT * FROM triage LEFT JOIN patient ON triage.id_patient = patient.id_patient WHERE triage.id_gebruikers = '".$_SESSION['id']."'";
+                      $sql = "SELECT * FROM triage LEFT JOIN patient ON triage.id_patient = patient.id_patient WHERE triage.id_gebruikers = '".$_SESSION['id']."' AND roken ='ja' AND swab ='ja'";
                       
                       $result = $conn->query($sql);
 
@@ -182,14 +182,10 @@ session_start();
                                                 <td><?php echo $row['triagenummer']; ?></td>
                                                 <td><?php echo $row['naam']; ?></td>
                                                 <td><?php echo $row['id_nummer']; ?></td>
+                                                <td><?php echo $row['datum_traige']; ?></td>
                                                 <td><?php echo $row['roken']; ?></td>
                                                 <td><?php echo $row['swab']; ?></td>
-                                                <td>
-                                                <a href="#view<?php echo $row['triagenummer']; ?>" data-toggle="modal" class="btn btn-primary material-icons">visibility</a>
-                                                 <?php include('../../assistent/modal/view_triage_modal.php'); ?>
-                                                <a href="#edittriage<?php echo $row['triagenummer']; ?>" data-toggle="modal" class="btn btn-warning material-icons">edit</a>
-                                                <?php include('../../assistent/modal/edit_triage_modal.php'); ?>
-                                                </td>
+                                               
                                                 
                       </tr>
                                     <?php
