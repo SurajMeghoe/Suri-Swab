@@ -190,7 +190,7 @@ session_start();
                                     <?php
                                         }
                                     } else {
-                                      echo "error";
+                                      echo "";
                                     }
                                     ?>
                       </tbody>

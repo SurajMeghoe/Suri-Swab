@@ -17,7 +17,18 @@ if(isset($_POST['insertdata']))
   $sesdistrict     = $_SESSION['district'];
   $sesid           = $_SESSION['id'];
 
-       
+         $check=mysqli_query($conn, "SELECT * from patient where  naam='$patientnaam' AND voornaam='$patientvoornaam' ");
+        $checkrows=mysqli_num_rows($check);
+
+        if($checkrows>0)
+        {
+                           echo '<script type = "text/javascript">';
+                           echo 'alert("Patient is al reeds geregistreerd");';
+                           echo 'window.location.href = "../view/patient.php" ';
+                           echo '</script>';
+        }
+        else
+        {
                 $query = "INSERT INTO patient (`id_gebruikers`,`id_district`,`naam`,`voornaam`,`nationaliteit`,`id_nummer`,`geslacht`,`adres`,`geboortedatum`,`datum`,`beroep`,`huisarts`) 
                             VALUES ('$sesid','$sesdistrict','$patientnaam','$patientvoornaam','$nationaliteit','$idnummer','$rolepatient','$adres','$gdatum','$odatum','$beroep','$huisarts')";
                     $query_run = mysqli_query($conn, $query);
@@ -35,6 +46,8 @@ if(isset($_POST['insertdata']))
                         }
 
                     }
+          }
+
         
     else
 {
