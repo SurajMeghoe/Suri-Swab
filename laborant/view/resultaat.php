@@ -140,7 +140,7 @@ session_start();
                                          
     
     <div class="col-md-4 ">
-          <span class="pull-right"><a href="#patientModal" data-toggle="modal" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>Resultaat registratie</a></span>
+          <span class="pull-right"><a href="#resultaatModal" data-toggle="modal" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>Resultaat registratie</a></span>
                
             </div>
                 </div>   
@@ -209,7 +209,7 @@ session_start();
           </div>
         </div>
       </div>
-      <?php include('../../assistent/modal/add_patient_modal.php'); ?>
+      <?php include('../../laborant/modal/add_resultaat_modal.php'); ?>
       
   
 
