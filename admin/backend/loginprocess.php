@@ -59,7 +59,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['role
         		$_SESSION['usernaam'] = $row['usernaam'];
 				$_SESSION['district'] = $row['id_district'];
 				$_SESSION['districtn'] = $row['districtnaam'];
-                    header("Location: ../../test/login2.php");
+                    header("Location: ../../laborant/view/dashboard.php");
 				}
 				else
 				{
