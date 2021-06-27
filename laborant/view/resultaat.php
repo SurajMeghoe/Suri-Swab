@@ -185,10 +185,14 @@ session_start();
                                                 <td><?php echo $row['naam']; ?></td>
                                                 <td><?php echo $row['voornaam']; ?></td>
                                                 <td><?php echo $row['swab']; ?></td>
-                                                <td><?php echo $row['uitslag']; ?></td>
+                                                <td <?php if($row['uitslag'] == 'positief'): ?> style="background-color:#FF0000;" <?php endif; ?> <?php if($row['uitslag'] == 'negatief'): ?> style="background-color:#00FF00;" <?php endif; ?>  >
+                                                <?php echo $row['uitslag']; ?>
+                                                </td>
+                                                
+                                                
                                                 <td>
-                                                <a href="#view<?php echo $row['id_patient']; ?>" data-toggle="modal" class="btn btn-primary material-icons">visibility</a>
-                                                 <?php include('../../assistent/modal/view_patient_modal.php'); ?>
+                                                <a href="#viewresultaat<?php echo $row['swabnummer']; ?>" data-toggle="modal" class="btn btn-primary material-icons">visibility</a>
+                                                 <?php include('../../laborant/modal/view_resultaat_modal.php'); ?>
                                                
                                                 </td>
                                                 
