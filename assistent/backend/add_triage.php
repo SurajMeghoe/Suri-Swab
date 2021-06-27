@@ -52,9 +52,6 @@ if(isset($_POST['btn-add']))
         $check=mysqli_query($conn, "SELECT * from triage where id_patient='$patientnummer'");
         $checkrows=mysqli_num_rows($check);
 
-        $check1=mysqli_query($conn, "SELECT * from triage LEFT JOIN patient ON triage.id_patient = patient.id_patient WHERE patient.id_district = '$sesdistrict'");
-        $checkrows1=mysqli_num_rows($check1);
-
         if($checkrows>0)
         {
                            echo '<script type = "text/javascript">';
@@ -62,13 +59,7 @@ if(isset($_POST['btn-add']))
                            echo 'window.location.href = "../view/triage.php" ';
                            echo '</script>';
         }
-        elseif($checkrows1)
-        { 
-                           echo '<script type = "text/javascript">';
-                           echo 'alert("patient is niet van uw district");';
-                           echo 'window.location.href = "../view/triage.php" ';
-                           echo '</script>';
-        }
+        
         else
         {
                 $query = "INSERT INTO `triage`(`id_patient`, `id_gebruikers`, `datum_traige`, `ziekten`, `contact_naam`, `contact_datum`, `contact_omschrijving`, `contact`, `bewezen`,`contact_ziek`, `roken`, `hoesten`, `kortademig`, `keelpijn`, `koorts`, `rillingen`, `hoofdpijn`, `spierpijn`, `misselijkheid`, `diarree`, `Vsmaak`, `Vreuk`, `Asymp`, `omschrijving`, `Zindruk`, `Momschrijving`, `swab`, `dhoesten`, `dkortademigheid`, `dkeelpijn`, `dkoorts`, `drillingen`, `dhoofdpijn`, `dspierpijn`, `dmisselijkheid`, `ddiarree`, `dsmaak`, `dreuk`, `dsymptomen`)
@@ -86,6 +77,9 @@ if(isset($_POST['btn-add']))
                         {
                              header("Location: ../view/triage.php?error= niet succesvol patient bestaat niet");
                         }
+
+                        
+
 
                     }
                }

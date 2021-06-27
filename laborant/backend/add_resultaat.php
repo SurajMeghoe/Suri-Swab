@@ -7,10 +7,11 @@ if(isset($_POST['insertdata']))
   $triagenummer    = $_POST['triagenummer'];
   $resultaat = $_POST['resultaat'];
   $telefoon   = $_POST['telefoon'];
-  $ziek      = $_POST['ziek '];
+  $ziek      = $_POST['ziek'];
   $transport     = $_POST['transport'];
+  $datum = $_POST['datum'];
   $omscrhrijving           = $_POST['omscrhrijving'];
- 
+  $sesid           = $_SESSION['id'];
 
         $check=mysqli_query($conn, "SELECT * from resultaat where  triagenummer='$triagenummer '");
         $checkrows=mysqli_num_rows($check);
@@ -24,14 +25,14 @@ if(isset($_POST['insertdata']))
         }
         else
         {
-                $query = "INSERT INTO patient (`id_gebruikers`,`id_district`,`naam`,`voornaam`,`nationaliteit`,`id_nummer`,`geslacht`,`adres`,`geboortedatum`,`datum`,`beroep`,`huisarts`) 
-                            VALUES ('$sesid','$sesdistrict','$patientnaam','$patientvoornaam','$nationaliteit','$idnummer','$rolepatient','$adres','$gdatum','$odatum','$beroep','$huisarts')";
+                $query = "INSERT INTO resultaat (`triagenummer`,`id_patient`,`id_gebruikers`,`datum`,`uitslag`,`overleg`,`ziek`,`omschrijving`,`transport`) 
+                            VALUES ('$triagenummer ',(SELECT `id_patient` FROM triage WHERE triagenummer = $triagenummer),'$sesid','$datum','$resultaat','$telefoon','$ziek','$omscrhrijving','$transport')";
                     $query_run = mysqli_query($conn, $query);
 
                         if($query_run)
                         {
                            echo '<script type = "text/javascript">';
-                           echo 'alert("patient registratie succesvol");';
+                           echo 'alert("resultaat van patient is gerigistreerd");';
                            echo 'window.location.href = "../view/patient.php" ';
                            echo '</script>';
                         }
@@ -39,6 +40,8 @@ if(isset($_POST['insertdata']))
                         {
                              header("Location: ../view/patient.php?error= 2niet succesvol");
                         }
+
+
 
                     }
           }
