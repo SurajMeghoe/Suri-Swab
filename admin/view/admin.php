@@ -47,7 +47,13 @@ session_start();
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item active">
+            <a class="nav-link" href="./admin.php" style="background-color: #29c2cc">
+              <i class="material-icons">admin_panel_settings</i>
+              <p>admin registration</p>
+            </a>
+          </li>
+          <li class="nav-item ">
             <a class="nav-link" href="./patient.php">
               <i class="material-icons">medication</i>
               <p>patient</p>
@@ -56,12 +62,17 @@ session_start();
           <li class="nav-item ">
             <a class="nav-link" href="./triage.php">
               <i class="material-icons">content_paste</i>
-              <p>Triage </p>
+              <p>Triage</p>
             </a>
           </li>
-          
-           <li class="nav-item active">
-            <a class="nav-link" href="./resultaat.php" style="background-color: #29c2cc" >
+          <li class="nav-item">
+            <a class="nav-link" href="./rook.php">
+              <i class="material-icons">smoking_rooms</i>
+              <p>Rook patient</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./resultaat.php">
               <i class="material-icons">feed</i>
               <p>Resultaat</p>
             </a>
@@ -77,7 +88,7 @@ session_start();
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;">Resultaat</a>
+            <a class="navbar-brand" href="javascript:;">Patient</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -130,8 +141,8 @@ session_start();
                 <div class="card-header card-header-primary" style="background: #29c2cc">
                   <div class="row">
                     <div class="col-md-4">
-                        <h4 class="card-title ">Resultaat registratie</h4>
-                        <p class="card-category"> Gegevens van elk patient</p>
+                        <h4 class="card-title ">admin gegevens</h4>
+                        <p class="card-category">Gegevens van users</p>
                         
                        </div>
                           <div class="col-md-4">
@@ -140,7 +151,7 @@ session_start();
                                          
     
     <div class="col-md-4 ">
-          <span class="pull-right"><a href="#resultaatModal" data-toggle="modal" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>Resultaat registratie</a></span>
+          <span class="pull-right"><a href="#userregistratieModal" data-toggle="modal" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>patient registratie</a></span>
                
             </div>
                 </div>   
@@ -151,19 +162,16 @@ session_start();
                     <table class="table" id="myTable">
                       <thead class=" text-primary">
                         <th>
-                          Swabnummer
+                          Naam
                         </th>
                         <th>
-                          Naam
+                          
                         </th>
                         <th>
                           Voornaam
                         </th>
                         <th>
-                          swab
-                        </th>
-                        <th>
-                          Resultaat
+                          geboortedatum
                         </th>
                         <th>
                           acties
@@ -171,7 +179,7 @@ session_start();
                       </thead>
                       <tbody>
                       <?php
-                      $sql = "SELECT * FROM `resultaat` LEFT JOIN patient ON resultaat.id_patient = patient.id_patient LEFT JOIN triage ON resultaat.triagenummer = triage.triagenummer WHERE resultaat.id_gebruikers = '".$_SESSION['id']."' AND resultaat.id_district = '".$_SESSION['district']."' ";
+                      $sql = "SELECT * from gebruikers";
                       
                       $result = $conn->query($sql);
 
@@ -181,19 +189,15 @@ session_start();
                                     
                       ?>
                       <tr>
-                                                <td><?php echo $row['swabnummer']; ?></td>
                                                 <td><?php echo $row['naam']; ?></td>
                                                 <td><?php echo $row['voornaam']; ?></td>
-                                                <td><?php echo $row['swab']; ?></td>
-                                                <td <?php if($row['uitslag'] == 'positief'): ?> style="background-color:#FF0000;" <?php endif; ?> <?php if($row['uitslag'] == 'negatief'): ?> style="background-color:#00FF00;" <?php endif; ?>  >
-                                                <?php echo $row['uitslag']; ?>
-                                                </td>
-                                                
-                                                
-                                                <td>
-                                                <a href="#viewresultaat<?php echo $row['swabnummer']; ?>" data-toggle="modal" class="btn btn-primary material-icons">visibility</a>
-                                                 <?php include('../../laborant/modal/view_resultaat_modal.php'); ?>
+                                                <td><?php echo $row['geboortedatum']; ?></td>
                                                
+                                                <td>
+                                                <a href="#view<?php echo $row['id_patient']; ?>" data-toggle="modal" class="btn btn-primary material-icons">visibility</a>
+                                                 <?php include('../../assistent/modal/view_patient_modal.php'); ?>
+                                                <a href="#edit<?php echo $row['id_patient']; ?>" data-toggle="modal" class="btn btn-warning material-icons">edit</a>
+                                                <?php include('../../assistent/modal/edit_patient_modal.php'); ?>
                                                 </td>
                                                 
                       </tr>
@@ -213,7 +217,7 @@ session_start();
           </div>
         </div>
       </div>
-      <?php include('../../laborant/modal/add_resultaat_modal.php'); ?>
+      <?php include('../../admin/modal/user_registratie_modal.php'); ?>
       
   
 

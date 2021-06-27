@@ -33,7 +33,7 @@ session_start();
 </head>
 
 <body class="">
-  <!-- navbar side begin -->
+   <!-- navbar side begin -->
   <div class="wrapper ">
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg" >
        <div class="logo"><a href="" class="simple-text logo-normal">
@@ -41,13 +41,19 @@ session_start();
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item">
+         <li class="nav-item">
             <a class="nav-link" href="./dashboard.php">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="./admin.php">
+              <i class="material-icons">admin_panel_settings</i>
+              <p>admin registration</p>
+            </a>
+          </li>
+          <li class="nav-item ">
             <a class="nav-link" href="./patient.php">
               <i class="material-icons">medication</i>
               <p>patient</p>
@@ -56,12 +62,17 @@ session_start();
           <li class="nav-item ">
             <a class="nav-link" href="./triage.php">
               <i class="material-icons">content_paste</i>
-              <p>Triage </p>
+              <p>Triage</p>
             </a>
           </li>
-          
-           <li class="nav-item active">
-            <a class="nav-link" href="./resultaat.php" style="background-color: #29c2cc" >
+          <li class="nav-item" >
+            <a class="nav-link" href="./rook.php" >
+              <i class="material-icons">smoking_rooms</i>
+              <p>Rook patient</p>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="./resultaat.php" style="background-color: #29c2cc">
               <i class="material-icons">feed</i>
               <p>Resultaat</p>
             </a>

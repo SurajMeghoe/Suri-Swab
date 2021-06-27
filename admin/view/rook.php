@@ -28,8 +28,7 @@ session_start();
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
  <!-- data tables -->
  <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css" rel="stylesheet">
-  
-  
+ 
 </head>
 
 <body class="">
@@ -41,13 +40,19 @@ session_start();
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item">
+         <li class="nav-item">
             <a class="nav-link" href="./dashboard.php">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="./admin.php">
+              <i class="material-icons">admin_panel_settings</i>
+              <p>admin registration</p>
+            </a>
+          </li>
+          <li class="nav-item ">
             <a class="nav-link" href="./patient.php">
               <i class="material-icons">medication</i>
               <p>patient</p>
@@ -56,12 +61,17 @@ session_start();
           <li class="nav-item ">
             <a class="nav-link" href="./triage.php">
               <i class="material-icons">content_paste</i>
-              <p>Triage </p>
+              <p>Triage</p>
             </a>
           </li>
-          
-           <li class="nav-item active">
-            <a class="nav-link" href="./resultaat.php" style="background-color: #29c2cc" >
+          <li class="nav-item active" >
+            <a class="nav-link" href="./rook.php" style="background-color: #29c2cc">
+              <i class="material-icons">smoking_rooms</i>
+              <p>Rook patient</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./resultaat.php">
               <i class="material-icons">feed</i>
               <p>Resultaat</p>
             </a>
@@ -77,7 +87,7 @@ session_start();
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;">Resultaat</a>
+            <a class="navbar-brand" href="javascript:;">Triage</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -130,7 +140,7 @@ session_start();
                 <div class="card-header card-header-primary" style="background: #29c2cc">
                   <div class="row">
                     <div class="col-md-4">
-                        <h4 class="card-title ">Resultaat registratie</h4>
+                        <h4 class="card-title ">Patient informatie</h4>
                         <p class="card-category"> Gegevens van elk patient</p>
                         
                        </div>
@@ -140,8 +150,7 @@ session_start();
                                          
     
     <div class="col-md-4 ">
-          <span class="pull-right"><a href="#resultaatModal" data-toggle="modal" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>Resultaat registratie</a></span>
-               
+      
             </div>
                 </div>   
                   
@@ -151,27 +160,28 @@ session_start();
                     <table class="table" id="myTable">
                       <thead class=" text-primary">
                         <th>
-                          Swabnummer
+                          traigenummer
                         </th>
                         <th>
-                          Naam
+                          patient naam
                         </th>
                         <th>
-                          Voornaam
+                          id nummer
+                        </th>
+                        <th>
+                          datum
+                        </th>
+                        <th>
+                          rook
                         </th>
                         <th>
                           swab
                         </th>
-                        <th>
-                          Resultaat
-                        </th>
-                        <th>
-                          acties
-                        </th>
+                        
                       </thead>
                       <tbody>
                       <?php
-                      $sql = "SELECT * FROM `resultaat` LEFT JOIN patient ON resultaat.id_patient = patient.id_patient LEFT JOIN triage ON resultaat.triagenummer = triage.triagenummer WHERE resultaat.id_gebruikers = '".$_SESSION['id']."' AND resultaat.id_district = '".$_SESSION['district']."' ";
+                      $sql = "SELECT * FROM triage LEFT JOIN patient ON triage.id_patient = patient.id_patient WHERE triage.id_gebruikers = '".$_SESSION['id']."' AND roken ='ja' AND swab ='ja'";
                       
                       $result = $conn->query($sql);
 
@@ -181,20 +191,13 @@ session_start();
                                     
                       ?>
                       <tr>
-                                                <td><?php echo $row['swabnummer']; ?></td>
+                                                <td><?php echo $row['triagenummer']; ?></td>
                                                 <td><?php echo $row['naam']; ?></td>
-                                                <td><?php echo $row['voornaam']; ?></td>
+                                                <td><?php echo $row['id_nummer']; ?></td>
+                                                <td><?php echo $row['datum_traige']; ?></td>
+                                                <td><?php echo $row['roken']; ?></td>
                                                 <td><?php echo $row['swab']; ?></td>
-                                                <td <?php if($row['uitslag'] == 'positief'): ?> style="background-color:#FF0000;" <?php endif; ?> <?php if($row['uitslag'] == 'negatief'): ?> style="background-color:#00FF00;" <?php endif; ?>  >
-                                                <?php echo $row['uitslag']; ?>
-                                                </td>
-                                                
-                                                
-                                                <td>
-                                                <a href="#viewresultaat<?php echo $row['swabnummer']; ?>" data-toggle="modal" class="btn btn-primary material-icons">visibility</a>
-                                                 <?php include('../../laborant/modal/view_resultaat_modal.php'); ?>
                                                
-                                                </td>
                                                 
                       </tr>
                                     <?php
@@ -213,9 +216,7 @@ session_start();
           </div>
         </div>
       </div>
-      <?php include('../../laborant/modal/add_resultaat_modal.php'); ?>
-      
-  
+           <?php include('../../assistent/modal/add_triage_modal.php'); ?>
 
 
   <!-- bootstrap JS -->
@@ -230,6 +231,8 @@ session_start();
   <!--datatables bootstrap 4 -->
   <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
+
+  <!-- filter scripts -->
   <!--<script src="../../assets/js/jquery-3.5.1.js"></script>-->
   <script>
   $(document).ready(function() {
@@ -237,9 +240,9 @@ session_start();
 } );
   </script>                            
 
-
   <!-- all scripts -->
   <script src="../../scripts/script.php"></script>
+         
          
  
 </body>

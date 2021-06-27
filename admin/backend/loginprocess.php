@@ -39,7 +39,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['role
 				$_SESSION['district'] = $row['id_district'];
 				$_SESSION['districtn'] = $row['districtnaam'];
 
-        		header("Location: ../../admin/view/dashboardAdmin.php");
+        		header("Location: ../../admin/view/dashboard.php");
 				}
 				else if ($row['role'] == "assistent")
 				{

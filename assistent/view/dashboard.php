@@ -107,116 +107,115 @@ session_start();
       <div class="content">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="col-lg-4 col-md-6 col-sm-6">
               <div class="card card-stats">
-                <div class="card-header card-header-warning card-header-icon" >
+                <div class="card-header card-header-danger card-header-icon" >
                   <div class="card-icon">
-                    <i class="material-icons">content_copy</i>
+                    <i class="material-icons">masks</i>
                   </div>
-                  <p class="card-category">Used Space</p>
-                  <h3 class="card-title">49/50
-                    <small>GB</small>
+                  <p class="card-category">Aantal positieven vandaag</p>
+                  <h3 class="card-title">
+                    <?php
+                    date_default_timezone_set('America/Belize'); 
+                    $date = date('y/m/d');
+                    $result = mysqli_query($conn, "SELECT COUNT(uitslag) as total FROM resultaat WHERE uitslag = 'positief' AND datum = '$date'");
+                            $data = mysqli_fetch_assoc($result);
+                            echo $data['total']; ?>   
                   </h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
-                    <i class="material-icons text-danger">warning</i>
-                    <a href="javascript:;">Get More Space...</a>
+                      <i class="material-icons">date_range</i> Last 24 Hours
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="col-lg-4 col-md-6 col-sm-6">
               <div class="card card-stats">
                 <div class="card-header card-header-success card-header-icon">
                   <div class="card-icon">
-                    <i class="material-icons">store</i>
+                    <i class="material-icons">biotech</i>
                   </div>
-                  <p class="card-category">Revenue</p>
-                  <h3 class="card-title">$34,245</h3>
+                  <p class="card-category">Aantal positieven</p>
+                  <h3 class="card-title"> <?php 
+                    
+                    $result = mysqli_query($conn, "SELECT COUNT(uitslag) as total FROM resultaat WHERE uitslag = 'positief'");
+                            $data = mysqli_fetch_assoc($result);
+                            echo $data['total']; ?>  </h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
-                    <i class="material-icons">date_range</i> Last 24 Hours
+                     Covid pandemie
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="col-lg-4 col-md-6 col-sm-6">
               <div class="card card-stats">
                 <div class="card-header card-header-danger card-header-icon">
                   <div class="card-icon">
-                    <i class="material-icons">info_outline</i>
+                    <i class="material-icons">sick</i>
                   </div>
-                  <p class="card-category">Fixed Issues</p>
-                  <h3 class="card-title">75</h3>
+                  <p class="card-category">Totaal aantal testen (24 uur)</p>
+                  <h3 class="card-title"><?php 
+                    $date = date('y/m/d');
+                    $result = mysqli_query($conn, "SELECT COUNT(swab) as total FROM triage WHERE swab = 'ja' AND datum_traige = '$date'");
+                            $data = mysqli_fetch_assoc($result);
+                            echo $data['total']; ?></h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
-                    <i class="material-icons">local_offer</i> Tracked from Github
+                      <i class="material-icons">date_range</i> Last 24 Hours
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card card-stats">
-                <div class="card-header card-header-info card-header-icon">
-                  <div class="card-icon">
-                    <i class="fa fa-twitter"></i>
-                  </div>
-                  <p class="card-category">Followers</p>
-                  <h3 class="card-title">+245</h3>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">update</i> Just Updated
-                  </div>
-                </div>
-              </div>
-            </div>
+            
           </div>
           <!-- end cards -->
           <!-- tabel district -->
             <div class="col-lg-12 col-md-12">
               <div class="card">
                 <div class="card-header card-header-warning" style="background: #29c2cc">
-                  <h4 class="card-title">Employees Stats</h4>
-                  <p class="card-category">New employees on 15th September, 2016</p>
+                  <h4 class="card-title">Aantal postieven vandaag</h4>
+                  <p class="card-category">Districten weergave</p>
                 </div>
                 <div class="card-body table-responsive">
                   
                   <table class="table table-hover">
                     <thead class="text-warning">
                       <th>ID</th>
-                      <th>Name</th>
-                      <th>Salary</th>
-                      <th>Country</th>
+                      <th>district naam</th>
+                      <th>aantal positieven</th>
+                      
                     </thead>
                     <tbody>
+                       <?php
+                    date_default_timezone_set('America/Belize'); 
+                    $date = date('y/m/d');
+                    $sql = "SELECT district.id_district,district.districtnaam AS districtnaam, Count(resultaat.uitslag) AS COUNT FROM district LEFT OUTER JOIN resultaat ON resultaat.id_district = district.id_district WHERE resultaat.uitslag = 'positief' AND resultaat.datum = '$date' GROUP BY districtnaam";
+                      
+                      $result = $conn->query($sql);
+
+                                    if ($result->num_rows > 0) {
+                                        // output data of each row
+                                        while ($row = $result->fetch_assoc()) {
+                                    
+                      ?>
                       <tr>
-                        <td>1</td>
-                        <td>Dakota Rice</td>
-                        <td>$36,738</td>
-                        <td>Niger</td>
+                                                <td><?php echo $row['id_district']; ?></td>
+                                                <td><?php echo $row['districtnaam']; ?></td>
+                                                <td><?php echo $row['COUNT']; ?></td>
+                                                
+                                                
+                                                
                       </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Minerva Hooper</td>
-                        <td>$23,789</td>
-                        <td>Curaçao</td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>Sage Rodriguez</td>
-                        <td>$56,142</td>
-                        <td>Netherlands</td>
-                      </tr>
-                      <tr>
-                        <td>4</td>
-                        <td>Philip Chaney</td>
-                        <td>$38,735</td>
-                        <td>Korea, South</td>
-                      </tr>
+                                    <?php
+                                        }
+                                    } else {
+                                      echo "";
+                                    }
+                                    ?>
                     </tbody>
                   </table>
                 </div>
