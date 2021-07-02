@@ -12,6 +12,7 @@ if(isset($_POST['insertdata']))
   $datum = $_POST['datum'];
   $omscrhrijving           = $_POST['omscrhrijving'];
   $sesid           = $_SESSION['id'];
+  $district = $_SESSION['district'];
 
         $check=mysqli_query($conn, "SELECT * from resultaat where  triagenummer='$triagenummer '");
         $checkrows=mysqli_num_rows($check);
@@ -25,20 +26,21 @@ if(isset($_POST['insertdata']))
         }
         else
         {
-                $query = "INSERT INTO resultaat (`triagenummer`,`id_patient`,`id_gebruikers`,`datum`,`uitslag`,`overleg`,`ziek`,`omschrijving`,`transport`) 
-                            VALUES ('$triagenummer ',(SELECT `id_patient` FROM triage WHERE triagenummer = $triagenummer),'$sesid','$datum','$resultaat','$telefoon','$ziek','$omscrhrijving','$transport')";
+                $query = "INSERT INTO `resultaat`(`triagenummer`, `id_patient`, `id_gebruikers`, `id_district`, `datum`, `uitslag`, `overleg`, `ziek`, `omschrijving`, `transport`) 
+                         VALUES ('$triagenummer',(SELECT `id_patient` FROM triage WHERE triagenummer = $triagenummer),'$sesid','$district','$datum','$resultaat','$telefoon','$ziek','$omscrhrijving','$transport')";
+                    
                     $query_run = mysqli_query($conn, $query);
 
                         if($query_run)
                         {
                            echo '<script type = "text/javascript">';
                            echo 'alert("resultaat van patient is gerigistreerd");';
-                           echo 'window.location.href = "../view/patient.php" ';
+                           echo 'window.location.href = "../view/resultaat.php" ';
                            echo '</script>';
                         }
                         else
                         {
-                             header("Location: ../view/patient.php?error= 2niet succesvol");
+                             header("Location: ../view/resultaat.php?error= 2niet succesvol");
                         }
 
 

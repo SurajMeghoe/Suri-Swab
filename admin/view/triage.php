@@ -49,7 +49,7 @@ session_start();
           <li class="nav-item">
             <a class="nav-link" href="./admin.php">
               <i class="material-icons">admin_panel_settings</i>
-              <p>admin registration</p>
+              <p>user registration</p>
             </a>
           </li>
           <li class="nav-item ">
@@ -150,8 +150,7 @@ session_start();
                                          
     
     <div class="col-md-4 ">
-          <span class="pull-right"><a href="#triageModal" data-toggle="modal" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Triage registratie</a></span>
-               
+             
             </div>
                 </div>   
                   
@@ -181,7 +180,7 @@ session_start();
                       </thead>
                       <tbody>
                       <?php
-                      $sql = "SELECT * FROM triage LEFT JOIN patient ON triage.id_patient = patient.id_patient WHERE triage.id_gebruikers = '".$_SESSION['id']."'";
+                      $sql = "SELECT * FROM triage LEFT JOIN patient ON triage.id_patient = patient.id_patient";
                       
                       $result = $conn->query($sql);
 
@@ -198,9 +197,9 @@ session_start();
                                                 <td><?php echo $row['swab']; ?></td>
                                                 <td>
                                                 <a href="#view<?php echo $row['triagenummer']; ?>" data-toggle="modal" class="btn btn-primary material-icons">visibility</a>
-                                                 <?php include('../../assistent/modal/view_triage_modal.php'); ?>
+                                                 <?php include('../../admin/modal/view_triage_modal.php'); ?>
                                                 <a href="#edittriage<?php echo $row['triagenummer']; ?>" data-toggle="modal" class="btn btn-warning material-icons">edit</a>
-                                                <?php include('../../assistent/modal/edit_triage_modal.php'); ?>
+                                                <?php include('../../admin/modal/edit_triage_modal.php'); ?>
                                                 </td>
                                                 
                       </tr>

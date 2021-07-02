@@ -43,7 +43,7 @@ session_start();
           <li class="nav-item ">
             <a class="nav-link" href="./admin.php">
               <i class="material-icons">admin_panel_settings</i>
-              <p>admin registration</p>
+              <p>user registration</p>
             </a>
           </li>
           <li class="nav-item ">
@@ -127,11 +127,12 @@ session_start();
                   </div>
                   <p class="card-category">Aantal positieven vandaag</p>
                   <h3 class="card-title">
-                    <?php 
+                     <?php
+                    date_default_timezone_set('America/Belize'); 
                     $date = date('y/m/d');
                     $result = mysqli_query($conn, "SELECT COUNT(uitslag) as total FROM resultaat WHERE uitslag = 'positief' AND datum = '$date'");
                             $data = mysqli_fetch_assoc($result);
-                            echo $data['total']; ?>   
+                            echo $data['total']; ?>    
                   </h3>
                 </div>
                 <div class="card-footer">
@@ -202,11 +203,10 @@ session_start();
                     </thead>
                     <tbody>
                        <?php
-                      $sql = "SELECT district.id_district,district.districtnaam AS districtnaam,
-                              Count(resultaat.uitslag) AS COUNT
-                              FROM district
-                              LEFT OUTER JOIN resultaat ON resultaat.id_district = district.id_district
-                              GROUP BY districtnaam";
+                   date_default_timezone_set('America/Belize'); 
+                    $date = date('y/m/d');
+                    $sql = "SELECT district.id_district,district.districtnaam AS districtnaam, Count(resultaat.uitslag) AS COUNT FROM district LEFT OUTER JOIN resultaat ON resultaat.id_district = district.id_district WHERE resultaat.uitslag = 'positief' AND resultaat.datum = '$date' GROUP BY districtnaam";
+                     
                       
                       $result = $conn->query($sql);
 

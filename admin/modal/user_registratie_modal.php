@@ -50,7 +50,7 @@
           </div>
           <div class="col-md-6">
           <label for="password" class="form-label">Password</label>
-          <input type="text" class="form-control" name="password" id="password" required>
+          <input type="text" class="form-control" name="password" id="password" minlength="6" required>
        </div>
           
 </div>

@@ -49,7 +49,7 @@ session_start();
           <li class="nav-item">
             <a class="nav-link" href="./admin.php">
               <i class="material-icons">admin_panel_settings</i>
-              <p>admin registration</p>
+              <p>user registration</p>
             </a>
           </li>
           <li class="nav-item ">
@@ -181,7 +181,7 @@ session_start();
                       </thead>
                       <tbody>
                       <?php
-                      $sql = "SELECT * FROM triage LEFT JOIN patient ON triage.id_patient = patient.id_patient WHERE triage.id_gebruikers = '".$_SESSION['id']."' AND roken ='ja' AND swab ='ja'";
+                      $sql = "SELECT * FROM triage LEFT JOIN patient ON triage.id_patient = patient.id_patient WHERE roken ='ja' AND swab ='ja'";
                       
                       $result = $conn->query($sql);
 

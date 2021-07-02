@@ -50,7 +50,7 @@ session_start();
           <li class="nav-item">
             <a class="nav-link" href="./admin.php">
               <i class="material-icons">admin_panel_settings</i>
-              <p>admin registration</p>
+              <p>user registration</p>
             </a>
           </li>
           <li class="nav-item ">
@@ -151,8 +151,7 @@ session_start();
                                          
     
     <div class="col-md-4 ">
-          <span class="pull-right"><a href="#resultaatModal" data-toggle="modal" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>Resultaat registratie</a></span>
-               
+             
             </div>
                 </div>   
                   
@@ -182,7 +181,7 @@ session_start();
                       </thead>
                       <tbody>
                       <?php
-                      $sql = "SELECT * FROM `resultaat` LEFT JOIN patient ON resultaat.id_patient = patient.id_patient LEFT JOIN triage ON resultaat.triagenummer = triage.triagenummer WHERE resultaat.id_gebruikers = '".$_SESSION['id']."' AND resultaat.id_district = '".$_SESSION['district']."' ";
+                      $sql = "SELECT * FROM `resultaat` LEFT JOIN patient ON resultaat.id_patient = patient.id_patient LEFT JOIN triage ON resultaat.triagenummer = triage.triagenummer ";
                       
                       $result = $conn->query($sql);
 
@@ -203,9 +202,11 @@ session_start();
                                                 
                                                 <td>
                                                 <a href="#viewresultaat<?php echo $row['swabnummer']; ?>" data-toggle="modal" class="btn btn-primary material-icons">visibility</a>
-                                                 <?php include('../../laborant/modal/view_resultaat_modal.php'); ?>
-                                               
+                                                 
+                                                 <a href="#editresultaat<?php echo $row['swabnummer']; ?>" data-toggle="modal" class="btn btn-warning material-icons">edit</a>
+                                                <?php include('../../admin/modal/edit_resultaat_modal.php'); ?>
                                                 </td>
+                                                <?php include('../../admin/modal/view_resultaat_modal.php'); ?>
                                                 
                       </tr>
                                     <?php

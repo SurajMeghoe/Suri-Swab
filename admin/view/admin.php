@@ -50,7 +50,7 @@ session_start();
           <li class="nav-item active">
             <a class="nav-link" href="./admin.php" style="background-color: #29c2cc">
               <i class="material-icons">admin_panel_settings</i>
-              <p>admin registration</p>
+              <p>user registration</p>
             </a>
           </li>
           <li class="nav-item ">
@@ -88,7 +88,7 @@ session_start();
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;">Patient</a>
+            <a class="navbar-brand" href="javascript:;">User</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -141,8 +141,8 @@ session_start();
                 <div class="card-header card-header-primary" style="background: #29c2cc">
                   <div class="row">
                     <div class="col-md-4">
-                        <h4 class="card-title ">admin gegevens</h4>
-                        <p class="card-category">Gegevens van users</p>
+                        <h4 class="card-title ">User gegevens</h4>
+                        <p class="card-category"> Gegevens van elk user</p>
                         
                        </div>
                           <div class="col-md-4">
@@ -151,7 +151,7 @@ session_start();
                                          
     
     <div class="col-md-4 ">
-          <span class="pull-right"><a href="#userregistratieModal" data-toggle="modal" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>patient registratie</a></span>
+          <span class="pull-right"><a href="#userregistratieModal" data-toggle="modal" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>user registratie</a></span>
                
             </div>
                 </div>   
@@ -162,10 +162,10 @@ session_start();
                     <table class="table" id="myTable">
                       <thead class=" text-primary">
                         <th>
-                          Naam
+                          ID
                         </th>
                         <th>
-                          
+                          Naam
                         </th>
                         <th>
                           Voornaam
@@ -174,7 +174,10 @@ session_start();
                           geboortedatum
                         </th>
                         <th>
-                          acties
+                          rol
+                        </th>
+                        <th>
+                          view
                         </th>
                       </thead>
                       <tbody>
@@ -189,16 +192,20 @@ session_start();
                                     
                       ?>
                       <tr>
+                                                <td><?php echo $row['id_gebruiker']; ?></td>
                                                 <td><?php echo $row['naam']; ?></td>
                                                 <td><?php echo $row['voornaam']; ?></td>
                                                 <td><?php echo $row['geboortedatum']; ?></td>
-                                               
-                                                <td>
-                                                <a href="#view<?php echo $row['id_patient']; ?>" data-toggle="modal" class="btn btn-primary material-icons">visibility</a>
-                                                 <?php include('../../assistent/modal/view_patient_modal.php'); ?>
-                                                <a href="#edit<?php echo $row['id_patient']; ?>" data-toggle="modal" class="btn btn-warning material-icons">edit</a>
-                                                <?php include('../../assistent/modal/edit_patient_modal.php'); ?>
+                                                <td><?php echo $row['role']; ?></td>
+                                                 <td>
+                                                <a href="#viewuser<?php echo $row['id_gebruiker']; ?>" data-toggle="modal" class="btn btn-primary material-icons">visibility</a>
+                                                 
+                                                <a href="#edituser<?php echo $row['id_gebruiker']; ?>" data-toggle="modal" class="btn btn-warning material-icons">edit</a>
+                                                 
+                                              
+                                                <?php include('../../admin/modal/edit_user_modal.php'); ?>
                                                 </td>
+                                                <?php include('../../admin/modal/view_user_modal.php'); ?>
                                                 
                       </tr>
                                     <?php
@@ -220,7 +227,6 @@ session_start();
       <?php include('../../admin/modal/user_registratie_modal.php'); ?>
       
   
-
 
   <!-- bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
