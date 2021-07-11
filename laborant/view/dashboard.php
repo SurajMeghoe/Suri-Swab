@@ -52,6 +52,13 @@ session_start();
               <p>Triage</p>
             </a>
           </li>
+
+           <li class="nav-item">
+            <a class="nav-link" href="./rook.php">
+              <i class="material-icons">smoking_rooms</i>
+              <p>Rook patient</p>
+            </a>
+          </li>
          
           <li class="nav-item">
             <a class="nav-link" href="./resultaat.php">
