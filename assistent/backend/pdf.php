@@ -219,8 +219,8 @@ $pdf->Cell(70,10,"$gnaam $uvoornaam ","0","0","C");
 date_default_timezone_set('America/Belize'); 
                     $date = date('Y-m-d h-i-sa');
 
-$filename = 'Laatbrief_'.$naam.'_'. $voornaam."_".$date.'.pdf';
-$path = "../../download/$filename";
+$filename = 'Triage_'.$naam.'_'. $voornaam."_".$date.'.pdf';
+$path = "../../download/traige/$filename";
 $pdf->Output($path,'F');
                            
                            echo '<script type = "text/javascript">';
