@@ -25,7 +25,7 @@ if(isset($_POST['insertuser']))
         }
         else
         {
-                $query = "INSERT INTO gebruikers (`role`, `usernaam`, `password`, `id_district`, `naam`, `voornaam`, `geboortedatum`) 
+                $query = "INSERT INTO gebruikers (`role`, `usernaam`, `password`, `id_district`, `Unaam`, `Uvoornaam`, `geboortedatum`) 
                             VALUES ('$rol ','$username','$password','$district','$naam','$voornaam','$gdatum')";
                     $query_run = mysqli_query($conn, $query);
 

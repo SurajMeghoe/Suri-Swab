@@ -16,7 +16,7 @@ if(isset($_POST['edituser']))
 //   $sesid           = $_SESSION['id'];
 
        
-                $query = "UPDATE gebruikers SET naam='$naam',voornaam='$voornaam',role='$role',usernaam='$usernaam ',password='$password',geboortedatum='$gdatum',id_district='$district' WHERE id_gebruiker = '$id'";
+                $query = "UPDATE gebruikers SET Unaam='$naam',Uvoornaam='$voornaam',role='$role',usernaam='$usernaam ',password='$password',geboortedatum='$gdatum',id_district='$district' WHERE id_gebruiker = '$id'";
                     $query_run = mysqli_query($conn, $query);
 
                         if($query_run)

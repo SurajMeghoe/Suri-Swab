@@ -16,11 +16,11 @@
 				<div class="row">   
           <div class="col-md-6">
             <label for="naam" class="form-label">Naam</label>
-            <input type="text" class="form-control" name="naam" id="naam" value="<?php echo $erow['naam']; ?>" disabled>
+            <input type="text" class="form-control" name="naam" id="naam" value="<?php echo $erow['Unaam']; ?>" disabled>
           </div>
     <div class="col-md-6">
             <label for="voornaam" class="form-label">Voornaam</label>
-            <input type="text" class="form-control" name="voornaam" id="voornaam" value="<?php echo $erow['voornaam']; ?>" disabled>
+            <input type="text" class="form-control" name="voornaam" id="voornaam" value="<?php echo $erow['Uvoornaam']; ?>" disabled>
           </div>
     </div> 
 

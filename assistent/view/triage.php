@@ -189,6 +189,8 @@ session_start();
                                                  <?php include('../../assistent/modal/view_triage_modal.php'); ?>
                                                 <a href="#edittriage<?php echo $row['triagenummer']; ?>" data-toggle="modal" class="btn btn-warning material-icons">edit</a>
                                                 <?php include('../../assistent/modal/edit_triage_modal.php'); ?>
+                                                <a href="../../assistent/backend/pdf.php?id=<?php echo $row['triagenummer']; ?>"  class="btn btn-success material-icons" >file_download</a>
+                                                
                                                 </td>
                                                 
                       </tr>

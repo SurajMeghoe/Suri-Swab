@@ -193,8 +193,8 @@ session_start();
                       ?>
                       <tr>
                                                 <td><?php echo $row['id_gebruiker']; ?></td>
-                                                <td><?php echo $row['naam']; ?></td>
-                                                <td><?php echo $row['voornaam']; ?></td>
+                                                <td><?php echo $row['Unaam']; ?></td>
+                                                <td><?php echo $row['Uvoornaam']; ?></td>
                                                 <td><?php echo $row['geboortedatum']; ?></td>
                                                 <td><?php echo $row['role']; ?></td>
                                                  <td>
