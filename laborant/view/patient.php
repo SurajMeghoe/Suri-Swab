@@ -171,6 +171,9 @@ session_start();
                         <th>
                           geslacht
                         </th>
+                        <th>
+                          patient
+                        </th>
                       
                       </thead>
                       <tbody>
@@ -190,7 +193,11 @@ session_start();
                                                 <td><?php echo $row['voornaam']; ?></td>
                                                 <td><?php echo $row['geboortedatum']; ?></td>
                                                 <td><?php echo $row['geslacht']; ?></td>
-                                                
+                                                <td>
+                                                <a href="#view<?php echo $row['id_patient']; ?>" data-toggle="modal" class="btn btn-primary material-icons">visibility</a>
+                                                 <?php include('../../laborant/modal/view_patient_modal.php'); ?>
+                                               
+                                                </td>
                                                 
                       </tr>
                                     <?php

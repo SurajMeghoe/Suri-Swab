@@ -169,9 +169,6 @@ session_start();
                           id nummer
                         </th>
                         <th>
-                          rook
-                        </th>
-                        <th>
                           swab
                         </th>
                         <th>
@@ -193,13 +190,14 @@ session_start();
                                                 <td><?php echo $row['triagenummer']; ?></td>
                                                 <td><?php echo $row['naam']; ?></td>
                                                 <td><?php echo $row['id_nummer']; ?></td>
-                                                <td><?php echo $row['roken']; ?></td>
                                                 <td><?php echo $row['swab']; ?></td>
                                                 <td>
                                                 <a href="#view<?php echo $row['triagenummer']; ?>" data-toggle="modal" class="btn btn-primary material-icons">visibility</a>
                                                  <?php include('../../admin/modal/view_triage_modal.php'); ?>
                                                 <a href="#edittriage<?php echo $row['triagenummer']; ?>" data-toggle="modal" class="btn btn-warning material-icons">edit</a>
                                                 <?php include('../../admin/modal/edit_triage_modal.php'); ?>
+                                                <a href="../../admin/backend/pdf.php?id=<?php echo $row['triagenummer']; ?>"  class="btn btn-success material-icons" >file_download</a>
+                                                
                                                 </td>
                                                 
                       </tr>

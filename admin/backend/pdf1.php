@@ -40,9 +40,8 @@ $pdf->setLeftMargin(30);
 $pdf->setTextColor(0,0,0);
 $pdf->SetFont("Arial","B",12);
 
-$pdf->Cell(20,10,"Triagenummer:","0","0","");
-$pdf->Cell(20,10,$row['triagenummer'],"0","0","R");
-$pdf->Cell(120,10,"Patient Rookt","0","0","R");
+$pdf->Cell(20,10,"Swabnummer","0","0","");
+$pdf->Cell(20,10,$row['swabnummer'],"0","0","R");
 $pdf->Ln(8);
 $pdf->MultiCell(160,6,"Datum Onderzoek:$datum 
 Naam:                     $naam          
@@ -74,21 +73,17 @@ $pdf->Cell(160,20,"Naam Onderzoeker:   $Unaam $Uvoornaam","1","0","");
         {
             echo "error";
         }
-
-
 date_default_timezone_set('America/Argentina/Buenos_Aires'); 
                     $date = date('Y-m-d h-i-sa');
 
 $filename = 'Resultaat_'.$naam.'_'. $voornaam."_".$date.'.pdf';
-$path = "../../download/roken/$filename";
+$path = "../../download/resultaat/$filename";
 
 $pdf->Output($path,'F');
                            
                            echo '<script type = "text/javascript">';
                            echo 'alert("download succesvol");';
-                           echo 'window.location.href = "../view/rook.php" ';
+                           echo 'window.location.href = "../view/resultaat.php" ';
                            echo '</script>';
-                           
-                           
 
 ?>

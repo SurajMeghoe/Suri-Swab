@@ -34,9 +34,9 @@
     <div class="row g-3">   
           <div class="col-md-6">
             <select class="form-select" aria-label="Default select example" name="rolepatient" id="rolepatient"  required>
-              <option selected>Selecteer uw geslacht</option>
-              <option value="m">man</option>
-              <option value="v">vrouw</option>  
+              <option value="" selected>Selecteer uw geslacht</option>
+              <option value="man">man</option>
+              <option value="vrouw">vrouw</option>  
             </select>
           </div>
        <div class="col-md-6">

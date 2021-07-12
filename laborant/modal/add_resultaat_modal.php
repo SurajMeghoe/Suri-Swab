@@ -17,7 +17,7 @@
       <div class="col-md-6">
              <label for="resultaat" class="form-label">Swab resultaat</label>
             <select class="form-select" aria-label="Default select example" name="resultaat" id="resultaat"  required>
-              <option selected>Selecteer</option>
+              <option value="" selected>Selecteer</option>
               <option value="positief">positief</option>
               <option value="negatief">negatief</option>  
             </select>
@@ -28,7 +28,7 @@
          <div class="col-md-6">
              <label for="telefoon" class="form-label">Telefonisch contact</label>
             <select class="form-select" aria-label="Default select example" name="telefoon" id="telefoon"  required>
-              <option selected>Selecteer</option>
+              <option value="" selected>Selecteer</option>
               <option value="ja">ja</option>
               <option value="nee">nee</option>  
             </select>
@@ -36,7 +36,7 @@
       <div class="col-md-6">
              <label for="ziek" class="form-label">Patient ziek</label>
             <select class="form-select" aria-label="Default select example" name="ziek" id="ziek"  required>
-              <option selected>Selecteer</option>
+              <option value="" selected>Selecteer</option>
               <option value="ja">ja</option>
               <option value="nee">nee</option>  
             </select>
@@ -46,7 +46,7 @@
          <div class="col-md-6">
              <label for="transport" class="form-label">Besluit transport</label>
             <select class="form-select" aria-label="Default select example" name="transport" id="transport"  required>
-              <option selected>Selecteer</option>
+              <option value="" selected>Selecteer</option>
               <option value="ja">ja</option>
               <option value="nee">nee</option>  
             </select>

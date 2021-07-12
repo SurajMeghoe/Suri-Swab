@@ -156,19 +156,19 @@ session_start();
                     <table class="table" id="myTable">
                       <thead class=" text-primary">
                         <th>
-                          traigenummer
+                          Traigenummer
                         </th>
                         <th>
-                          patient naam
+                          Naam
                         </th>
                         <th>
-                          id nummer
+                          Voornaam
                         </th>
                         <th>
-                          rook
+                          Rook
                         </th>
                         <th>
-                          swab
+                          ID Nummer
                         </th>
                         
                       </thead>
@@ -186,10 +186,13 @@ session_start();
                       <tr>
                                                 <td><?php echo $row['triagenummer']; ?></td>
                                                 <td><?php echo $row['naam']; ?></td>
-                                                <td><?php echo $row['id_nummer']; ?></td>
+                                                <td><?php echo $row['voornaam']; ?></td>
                                                 <td><?php echo $row['roken']; ?></td>
-                                                <td><?php echo $row['swab']; ?></td>
-                                                
+                                                <td><?php echo $row['id_nummer']; ?></td>
+                                                 <td>
+                                                <a href="#view<?php echo $row['triagenummer']; ?>" data-toggle="modal" class="btn btn-primary material-icons">visibility</a>
+                                                 <?php include('../../laborant/modal/view_triage_modal.php'); ?>
+                                                 </td>
                                                 
                       </tr>
                                     <?php

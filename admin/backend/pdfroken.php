@@ -12,8 +12,7 @@ $pdf->SetWidths(Array(20,35,35,35,35,35));
 
 $pdf->SetLineHeight(5);
 
-$sql="SELECT * FROM resultaat LEFT JOIN triage ON triage.triagenummer = resultaat.triagenummer LEFT JOIN patient ON patient.id_patient = resultaat.id_patient WHERE resultaat.id_gebruikers = '".$_SESSION['id']."' AND roken='ja' AND uitslag = 'positief'";
-
+$sql="SELECT * FROM resultaat LEFT JOIN triage ON triage.triagenummer = resultaat.triagenummer LEFT JOIN patient ON patient.id_patient = resultaat.id_patient WHERE roken='ja' AND uitslag = 'positief'";
 
 $pdf->SetFont("Arial","B",16);
 $pdf->Cell(20,5,"No.",1,0);

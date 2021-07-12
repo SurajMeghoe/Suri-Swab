@@ -128,7 +128,7 @@ session_start();
                   <p class="card-category">Aantal positieven vandaag</p>
                   <h3 class="card-title">
                      <?php
-                    date_default_timezone_set('America/Belize'); 
+                     date_default_timezone_set('America/Argentina/Buenos_Aires');
                     $date = date('y/m/d');
                     $result = mysqli_query($conn, "SELECT COUNT(uitslag) as total FROM resultaat WHERE uitslag = 'positief' AND datum = '$date'");
                             $data = mysqli_fetch_assoc($result);
@@ -170,6 +170,7 @@ session_start();
                   </div>
                   <p class="card-category">Totaal aantal testen (24 uur)</p>
                   <h3 class="card-title"><?php 
+                   date_default_timezone_set('America/Argentina/Buenos_Aires');
                     $date = date('y/m/d');
                     $result = mysqli_query($conn, "SELECT COUNT(swab) as total FROM triage WHERE swab = 'ja' AND datum_traige = '$date'");
                             $data = mysqli_fetch_assoc($result);
@@ -203,7 +204,7 @@ session_start();
                     </thead>
                     <tbody>
                        <?php
-                   date_default_timezone_set('America/Belize'); 
+                    date_default_timezone_set('America/Argentina/Buenos_Aires');
                     $date = date('y/m/d');
                     $sql = "SELECT district.id_district,district.districtnaam AS districtnaam, Count(resultaat.uitslag) AS COUNT FROM district LEFT OUTER JOIN resultaat ON resultaat.id_district = district.id_district WHERE resultaat.uitslag = 'positief' AND resultaat.datum = '$date' GROUP BY districtnaam";
                      

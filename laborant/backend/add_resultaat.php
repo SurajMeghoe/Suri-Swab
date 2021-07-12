@@ -21,7 +21,7 @@ if(isset($_POST['insertdata']))
         {
                            echo '<script type = "text/javascript">';
                            echo 'alert("Patient heeft al een uitslag");';
-                           echo 'window.location.href = "../view/patient.php" ';
+                           echo 'window.location.href = "../view/resultaat.php" ';
                            echo '</script>';
         }
         else
@@ -40,7 +40,10 @@ if(isset($_POST['insertdata']))
                         }
                         else
                         {
-                             header("Location: ../view/resultaat.php?error= 2niet succesvol");
+                           echo '<script type = "text/javascript">';
+                           echo 'alert("Patient nummer verkeerd of patient bestaat niet");';
+                           echo 'window.location.href = "../view/resultaat.php" ';
+                           echo '</script>';
                         }
 
 

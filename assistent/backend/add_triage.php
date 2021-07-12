@@ -75,7 +75,10 @@ if(isset($_POST['btn-add']))
                         }
                         else
                         {
-                             header("Location: ../view/triage.php?error= niet succesvol patient bestaat niet");
+                           echo '<script type = "text/javascript">';
+                           echo 'alert("patient nummer komt niet voor");';
+                           echo 'window.location.href = "../view/triage.php" ';
+                           echo '</script>';
                         }
 
                         

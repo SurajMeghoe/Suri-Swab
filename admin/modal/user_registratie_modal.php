@@ -29,7 +29,7 @@
      <div class="col-md-6">
              <label for="district" class="form-label">Selecteer district</label>
             <select class="form-select" aria-label="Default select example" name="district" id="district"  required>
-              <option selected>Selecteer</option>
+              <option value="">Selecteer</option>
               <option value="1">Paramaribo</option>
               <option value="2">Wanica</option>
               <option value="3">Nickerie</option>
@@ -64,7 +64,7 @@
           <div class="col-md-6">
              <label for="district" class="form-label">Selecteer rol</label>
             <select class="form-select" aria-label="Default select example" name="rol" id="rol"  required>
-              <option selected>Selecteer</option>
+              <option value="">Selecteer</option>
               <option value="admin">Admin</option>
               <option value="assistent">Assistent</option>
               <option value="laborant">Laborant</option>

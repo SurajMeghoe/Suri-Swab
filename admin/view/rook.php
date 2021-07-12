@@ -150,7 +150,8 @@ session_start();
                                          
     
     <div class="col-md-4 ">
-      
+      <span class="pull-right"><a href="../../admin/backend/pdfroken.php"  class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>Weergave patienten</a></span>
+       
             </div>
                 </div>   
                   
@@ -160,7 +161,7 @@ session_start();
                     <table class="table" id="myTable">
                       <thead class=" text-primary">
                         <th>
-                          traigenummer
+                          Swabnummer
                         </th>
                         <th>
                           patient naam
@@ -169,19 +170,19 @@ session_start();
                           id nummer
                         </th>
                         <th>
-                          datum
-                        </th>
-                        <th>
                           rook
                         </th>
                         <th>
-                          swab
+                          Uitslag
+                        </th>
+                        <th>
+                        Acties
                         </th>
                         
                       </thead>
                       <tbody>
                       <?php
-                      $sql = "SELECT * FROM triage LEFT JOIN patient ON triage.id_patient = patient.id_patient WHERE roken ='ja' AND swab ='ja'";
+                      $sql = "SELECT * FROM resultaat LEFT JOIN triage ON triage.triagenummer = resultaat.triagenummer LEFT JOIN patient ON patient.id_patient = resultaat.id_patient WHERE roken='ja' AND uitslag = 'positief'";
                       
                       $result = $conn->query($sql);
 
@@ -191,13 +192,13 @@ session_start();
                                     
                       ?>
                       <tr>
-                                                <td><?php echo $row['triagenummer']; ?></td>
+                                                <td><?php echo $row['swabnummer']; ?></td>
                                                 <td><?php echo $row['naam']; ?></td>
                                                 <td><?php echo $row['id_nummer']; ?></td>
-                                                <td><?php echo $row['datum_traige']; ?></td>
                                                 <td><?php echo $row['roken']; ?></td>
-                                                <td><?php echo $row['swab']; ?></td>
-                                               
+                                                <td><?php echo $row['uitslag']; ?></td>
+                                                <td><a href="../../admin/backend/pdfrook.php?id=<?php echo $row['swabnummer']; ?>"  class="btn btn-success material-icons" >file_download</a><td>
+                                                
                                                 
                       </tr>
                                     <?php

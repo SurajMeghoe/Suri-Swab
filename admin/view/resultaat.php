@@ -202,9 +202,11 @@ session_start();
                                                 
                                                 <td>
                                                 <a href="#viewresultaat<?php echo $row['swabnummer']; ?>" data-toggle="modal" class="btn btn-primary material-icons">visibility</a>
-                                                 
-                                                 <a href="#editresultaat<?php echo $row['swabnummer']; ?>" data-toggle="modal" class="btn btn-warning material-icons">edit</a>
+                                                <a href="#editresultaat<?php echo $row['swabnummer']; ?>" data-toggle="modal" class="btn btn-warning material-icons">edit</a>
+                                                <a href="../../admin/backend/pdf1.php?id=<?php echo $row['swabnummer']; ?>"  class="btn btn-success material-icons" >file_download</a>
+                                                
                                                 <?php include('../../admin/modal/edit_resultaat_modal.php'); ?>
+                                                
                                                 </td>
                                                 <?php include('../../admin/modal/view_resultaat_modal.php'); ?>
                                                 

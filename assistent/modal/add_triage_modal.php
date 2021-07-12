@@ -43,8 +43,8 @@
           
  <div class="col-md-4">
           <label for="roken" class="form-label">roken</label>
-           <select class="form-select" aria-label="Default select example" name="roken" id="roken">
-            <option selected>Selecteer uw antwoord</option>
+           <select class="form-select" aria-label="Default select example" name="roken" id="roken" required>
+            <option value="" selected>Selecteer uw antwoord</option>
             <option value="ja">ja</option>
             <option value="nee">nee</option>
             </select>
@@ -53,8 +53,8 @@
 
        <div class="col-md-4">
           <label for="c14" class="form-label">Contact met ziek persoon</label>
-         <select class="form-select" aria-label="Default select example" name="c14" id="c14">
-            <option selected>Selecteer uw antwoord</option>
+         <select class="form-select" aria-label="Default select example" name="c14" id="c14" required>
+            <option value="" selected>Selecteer uw antwoord</option>
             <option value="ja">ja</option>
             <option value="nee">nee</option>
             </select>
@@ -63,8 +63,8 @@
 
        <div class="col-md-4">
           <label for="hpcovid" class="form-label">Family bewezen/verdachte covid-19</label>
-         <select class="form-select" aria-label="Default select example" name="hpcovid" id="hpcovid">
-            <option selected>Selecteer uw antwoord</option>
+         <select class="form-select" aria-label="Default select example" name="hpcovid" id="hpcovid" required>
+            <option value="" selected>Selecteer uw antwoord</option>
             <option value="ja">ja</option>
             <option value="nee">nee</option>
             </select>
@@ -87,8 +87,8 @@
     <div class="row">   
       <div class="col-md-4">
           <label for="hoesten" class="form-label">Hoesten</label>
-          <select class="form-select" aria-label="Default select example" name="hoesten" id="hoesten">
-            <option selected>Selecteer uw antwoord</option>
+          <select class="form-select" aria-label="Default select example" name="hoesten" id="hoesten" required>
+            <option value="" selected>Selecteer uw antwoord</option>
             <option value="ja">ja</option>
             <option value="nee">nee</option>
             </select>
@@ -105,8 +105,8 @@
     <div class="row">   
       <div class="col-md-4">
           <label for="kortademigheid" class="form-label">kortademigheid</label>
-          <select class="form-select" aria-label="Default select example" name="kortademigheid" id="kortademigheid">
-            <option selected>Selecteer uw antwoord</option>
+          <select class="form-select" aria-label="Default select example" name="kortademigheid" id="kortademigheid" required>
+            <option value="" selected>Selecteer uw antwoord</option>
             <option value="ja">ja</option>
             <option value="nee">nee</option>
             </select>
@@ -121,8 +121,8 @@
     <div class="row">   
       <div class="col-md-4">
           <label for="keelpijn" class="form-label">Keelpijn</label>
-          <select class="form-select" aria-label="Default select example" name="keelpijn" id="keelpijn">
-            <option selected>Selecteer uw antwoord</option>
+          <select class="form-select" aria-label="Default select example" name="keelpijn" id="keelpijn" required>
+            <option value="" selected>Selecteer uw antwoord</option>
             <option value="ja">ja</option>
             <option value="nee">nee</option>
             </select>
@@ -138,8 +138,8 @@
     <div class="row">   
       <div class="col-md-4">
           <label for="koorts" class="form-label">Koorts(gevoel)</label>
-          <select class="form-select" aria-label="Default select example" name="koorts" id="koorts">
-             <option selected>Selecteer uw antwoord</option>
+          <select class="form-select" aria-label="Default select example" name="koorts" id="koorts" required>
+             <option value="" selected>Selecteer uw antwoord</option>
             <option value="ja">ja</option>
             <option value="nee">nee</option>
             </select>
@@ -155,8 +155,8 @@
   <div class="row"> 
 <div class="col-md-4">
           <label for="rillingen" class="form-label">Koude rillingen</label>
-          <select class="form-select" aria-label="Default select example" name="rillingen" id="rillingen">
-             <option selected>Selecteer uw antwoord</option>
+          <select class="form-select" aria-label="Default select example" name="rillingen" id="rillingen" required>
+             <option value="" selected>Selecteer uw antwoord</option>
             <option value="ja">ja</option>
             <option value="nee">nee</option>
             </select>
@@ -171,8 +171,8 @@
   <div class="row"> 
 <div class="col-md-4">
           <label for="hoofdpijn" class="form-label">Hoofdpijn</label>
-          <select class="form-select" aria-label="Default select example" name="hoofdpijn" id="hoofdpijn">
-            <option selected>Selecteer uw antwoord</option>
+          <select class="form-select" aria-label="Default select example" name="hoofdpijn" id="hoofdpijn" required>
+            <option value="" selected>Selecteer uw antwoord</option>
             <option value="ja">ja</option>
             <option value="nee">nee</option>
             </select>
@@ -187,8 +187,8 @@
   <div class="row"> 
 <div class="col-md-4">
           <label for="spierpijn" class="form-label">Spierpijn</label>
-          <select class="form-select" aria-label="Default select example" name="spierpijn" id="spierpijn">
-             <option selected>Selecteer uw antwoord</option>
+          <select class="form-select" aria-label="Default select example" name="spierpijn" id="spierpijn" required>
+             <option value="" selected>Selecteer uw antwoord</option>
             <option value="ja">ja</option>
             <option value="nee">nee</option>
             </select>
@@ -203,8 +203,8 @@
   <div class="row"> 
 <div class="col-md-4">
           <label for="misselijkheid" class="form-label">Misselijkheid</label>
-          <select class="form-select" aria-label="Default select example" name="misselijkheid" id="misselijkheid">
-            <option selected>Selecteer uw antwoord</option>
+          <select class="form-select" aria-label="Default select example" name="misselijkheid" id="misselijkheid" required>
+            <option value="" selected>Selecteer uw antwoord</option>
             <option value="ja">ja</option>
             <option value="nee">nee</option>
             </select>
@@ -219,10 +219,10 @@
   <div class="row"> 
 <div class="col-md-4">
           <label for="diarree" class="form-label">Diaree</label>
-          <select class="form-select" aria-label="Default select example" name="diarree" id="diarree">
-             <option selected>Selecteer uw antwoord</option>
+          <select class="form-select" aria-label="Default select example" name="diarree" id="diarree" required>
+             <option value="" selected>Selecteer uw antwoord</option>
             <option value="ja">ja</option>
-            <option value="nee">jee</option>
+            <option value="nee">nee</option>
             </select>
        </div>
 
@@ -235,8 +235,8 @@
   <div class="row"> 
 <div class="col-md-4">
           <label for="smaak" class="form-label">Veranderde smaak</label>
-          <select class="form-select" aria-label="Default select example" name="smaak" id="smaak">
-             <option selected>Selecteer uw antwoord</option>
+          <select class="form-select" aria-label="Default select example" name="smaak" id="smaak" required>
+             <option value="" selected>Selecteer uw antwoord</option>
             <option value="ja">ja</option>
             <option value="nee">nee</option>
             </select>
@@ -251,8 +251,8 @@
   <div class="row"> 
 <div class="col-md-4">
           <label for="reuk" class="form-label">Reuk</label>
-          <select class="form-select" aria-label="Default select example" name="reuk" id="reuk">
-             <option selected>Selecteer uw antwoord</option>
+          <select class="form-select" aria-label="Default select example" name="reuk" id="reuk" required>
+             <option value="" selected>Selecteer uw antwoord</option>
             <option value="ja">ja</option>
             <option value="nee">nee</option>
             </select>
@@ -267,8 +267,8 @@
  <div class="row">
  <div class="col-md-4">
           <label for="symptomen" class="form-label">Andere symptomen</label>
-          <select class="form-select" aria-label="Default select example" name="symptomen" id="symptomen">
-             <option selected>Selecteer uw antwoord</option>
+          <select class="form-select" aria-label="Default select example" name="symptomen" id="symptomen" required>
+             <option value="" selected>Selecteer uw antwoord</option>
             <option value="ja">ja</option>
             <option value="nee">nee</option>
             </select>
@@ -292,8 +292,8 @@
 <div class="row"> 
    <div class="col-md-4">
           <label for="ziek" class="form-label">zieke indruk</label>
-          <select class="form-select" aria-label="Default select example" name="ziek" id="ziek">
-            <option selected>Selecteer uw antwoord</option>
+          <select class="form-select" aria-label="Default select example" name="ziek" id="ziek" required>
+            <option value="" selected>Selecteer uw antwoord</option>
             <option value="ja">ja</option>
             <option value="nee">nee</option>
             </select>
@@ -301,8 +301,8 @@
 
        <div class="col-md-4">
           <label for="swab" class="form-label">swab afgenomen</label>
-          <select class="form-select" aria-label="Default select example" name="swab" id="swab">
-            <option selected>Selecteer uw antwoord</option>
+          <select class="form-select" aria-label="Default select example" name="swab" id="swab" required>
+            <option value="" selected>Selecteer uw antwoord</option>
             <option value="ja">ja</option>
             <option value="nee">nee</option>
             </select>

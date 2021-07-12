@@ -38,7 +38,10 @@ if(isset($_POST['insertuser']))
                         }
                         else
                         {
-                             header("Location: ../view/admin.php?error= 2niet succesvol");
+                           echo '<script type = "text/javascript">';
+                           echo 'alert("Vul alles in!");';
+                           echo 'window.location.href = "../view/admin.php" ';
+                           echo '</script>';
                         }
 
                     }
@@ -47,7 +50,7 @@ if(isset($_POST['insertuser']))
         
     else
 {
-     header("Location: ../view/admin.php?error= 1niet succesvol");
+     header("Location: ../view/admin.php?error= niet succesvol");
 }
 
 
