@@ -42,7 +42,10 @@ if(isset($_POST['insertdata']))
                         }
                         else
                         {
-                             header("Location: ../view/patient.php?error= 2niet succesvol");
+                           echo '<script type = "text/javascript">';
+                           echo 'alert("Vul alles in!");';
+                           echo 'window.location.href = "../view/patient.php" ';
+                           echo '</script>';
                         }
 
                     }

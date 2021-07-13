@@ -34,7 +34,7 @@ if(isset($_POST['insertdata']))
                         if($query_run)
                         {
                            echo '<script type = "text/javascript">';
-                           echo 'alert("resultaat van patient is gerigistreerd");';
+                           echo 'alert("Resultaat van patient is gerigistreerd");';
                            echo 'window.location.href = "../view/resultaat.php" ';
                            echo '</script>';
                         }

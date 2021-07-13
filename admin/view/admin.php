@@ -171,13 +171,13 @@ session_start();
                           Voornaam
                         </th>
                         <th>
-                          geboortedatum
+                          Geboortedatum
                         </th>
                         <th>
-                          rol
+                          Rol
                         </th>
                         <th>
-                          view
+                          Acties
                         </th>
                       </thead>
                       <tbody>

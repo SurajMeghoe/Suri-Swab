@@ -3,8 +3,8 @@
         <div class="modal-dialog modal-dialog-centered ">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel"></h4>
+                <h4 class="modal-title" id="myModalLabel"> Resultaat registratie</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>      
                 </div>
                 <div class="modal-body">
 				<div class="container-fluid">
@@ -74,8 +74,8 @@
 
                 <div class="modal-footer">
                
-                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-                   <button type="submit" name="insertdata" class="btn btn-primary">Save Data</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Sluiten</button>
+                   <button type="submit" name="insertdata" class="btn btn-primary">Opslaan</button>
 				</form>
                 </div>
 				

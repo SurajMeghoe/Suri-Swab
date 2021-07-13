@@ -28,7 +28,10 @@ if(isset($_POST['edituser']))
                         }
                         else
                         {
-                             header("Location: ../view/admin.php?error= 2niet succesvol");
+                           echo '<script type = "text/javascript">';
+                           echo 'alert("Vul alles in!");';
+                           echo 'window.location.href = "../view/admin.php" ';
+                           echo '</script>';
                         }
 
                     }

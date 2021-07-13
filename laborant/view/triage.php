@@ -136,8 +136,8 @@ session_start();
                 <div class="card-header card-header-primary" style="background: #29c2cc">
                   <div class="row">
                     <div class="col-md-4">
-                        <h4 class="card-title ">Patient informatie</h4>
-                        <p class="card-category"> Gegevens van elk patient</p>
+                        <h4 class="card-title ">Triage Gegevens</h4>
+                        <p class="card-category"> Triage lijst van elk patient</p>
                         
                        </div>
                           <div class="col-md-4">
@@ -159,17 +159,20 @@ session_start();
                           Traigenummer
                         </th>
                         <th>
-                          Naam
+                          Patient Naam
                         </th>
                         <th>
-                          Voornaam
+                          Patient Voornaam
                         </th>
-                        <th>
-                          Rook
-                        </th>
+
                         <th>
                           ID Nummer
                         </th>
+
+                        <th>
+                          Patient Rook
+                        </th>
+                        
                         
                       </thead>
                       <tbody>
@@ -187,8 +190,9 @@ session_start();
                                                 <td><?php echo $row['triagenummer']; ?></td>
                                                 <td><?php echo $row['naam']; ?></td>
                                                 <td><?php echo $row['voornaam']; ?></td>
-                                                <td><?php echo $row['roken']; ?></td>
                                                 <td><?php echo $row['id_nummer']; ?></td>
+                                                <td><?php echo $row['roken']; ?></td>
+                                                
                                                  <td>
                                                 <a href="#view<?php echo $row['triagenummer']; ?>" data-toggle="modal" class="btn btn-primary material-icons">visibility</a>
                                                  <?php include('../../laborant/modal/view_triage_modal.php'); ?>

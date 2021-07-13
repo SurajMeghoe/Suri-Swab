@@ -5,7 +5,7 @@
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Patient registratie</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Patient bewerken</h5>
          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
       </div>
      
@@ -89,8 +89,8 @@
 
       </div>
       <div class="modal-footer">
-         <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-        <button type="submit" name="edit" class="btn btn-primary">Save Data</button>
+         <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Sluiten</button>
+        <button type="submit" name="edit" class="btn btn-primary">Opslaan</button>
       </div>
       </form>
     </div>

@@ -41,7 +41,7 @@
                 <?php } ?>
           
           </div>
-              <h1 class="font-weight-bold py-3">Sign into your account</h1>
+              <h1 class="font-weight-bold py-3">Welkom bij Suri Swab</h1>
               
               <form action="./admin/backend/loginprocess.php" method="post">
                   <div class="form-row">

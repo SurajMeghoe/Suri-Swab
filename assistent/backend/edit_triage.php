@@ -55,13 +55,16 @@ if(isset($_POST['edit']))
                         if($query_run)
                         {
                            echo '<script type = "text/javascript">';
-                           echo 'alert("patient update succesvol");';
+                           echo 'alert("Triage update succesvol");';
                            echo 'window.location.href = "../view/triage.php" ';
                            echo '</script>';
                         }
                         else
                         {
-                             header("Location: ../view/triage.php?error= 2niet succesvol");
+                           echo '<script type = "text/javascript">';
+                           echo 'alert("Vul alles in!");';
+                           echo 'window.location.href = "../view/triage.php" ';
+                           echo '</script>';
                         }
 
                     }

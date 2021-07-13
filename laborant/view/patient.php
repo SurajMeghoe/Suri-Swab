@@ -137,7 +137,7 @@ session_start();
                 <div class="card-header card-header-primary" style="background: #29c2cc">
                   <div class="row">
                     <div class="col-md-4">
-                        <h4 class="card-title ">Patient informatie</h4>
+                        <h4 class="card-title ">Patient Gegevens</h4>
                         <p class="card-category"> Gegevens van elk patient</p>
                         
                        </div>
@@ -156,7 +156,7 @@ session_start();
                   <div class="table-responsive">
                     <table class="table" id="myTable">
                       <thead class=" text-primary">
-                        <th>
+                       <th>
                           ID
                         </th>
                         <th>
@@ -166,15 +166,14 @@ session_start();
                           Voornaam
                         </th>
                         <th>
-                          geboortedatum
+                          Geboortedatum
                         </th>
                         <th>
-                          geslacht
+                          Geslacht
                         </th>
                         <th>
-                          patient
+                          Acties
                         </th>
-                      
                       </thead>
                       <tbody>
                       <?php

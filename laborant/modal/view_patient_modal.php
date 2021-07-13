@@ -5,7 +5,7 @@
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Patient registratie</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Patient Weergave</h5>
          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
       </div>
      
@@ -89,7 +89,7 @@
 
       </div>
       <div class="modal-footer">
-         <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Close</button>
+         <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Sluiten</button>
        
       </div>
       </form>

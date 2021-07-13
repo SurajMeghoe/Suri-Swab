@@ -140,8 +140,8 @@ session_start();
                 <div class="card-header card-header-primary" style="background: #29c2cc">
                   <div class="row">
                     <div class="col-md-4">
-                        <h4 class="card-title ">Patient informatie</h4>
-                        <p class="card-category"> Gegevens van elk patient</p>
+                        <h4 class="card-title ">Triage Gegevens</h4>
+                        <p class="card-category"> Triage lijst van elk patient</p>
                         
                        </div>
                           <div class="col-md-4">
@@ -160,19 +160,19 @@ session_start();
                     <table class="table" id="myTable">
                       <thead class=" text-primary">
                         <th>
-                          traigenummer
+                          Traigenummer
                         </th>
                         <th>
-                          patient naam
+                          Patient Naam
                         </th>
                         <th>
-                          id nummer
+                          ID Nummer
                         </th>
                         <th>
-                          swab
+                          Swab
                         </th>
                         <th>
-                          acties
+                          Acties
                         </th>
                       </thead>
                       <tbody>

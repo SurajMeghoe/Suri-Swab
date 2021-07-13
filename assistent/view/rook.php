@@ -75,7 +75,7 @@ session_start();
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;">Triage</a>
+            <a class="navbar-brand" href="javascript:;">Patienten Roken</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -128,8 +128,8 @@ session_start();
                 <div class="card-header card-header-primary" style="background: #29c2cc">
                   <div class="row">
                     <div class="col-md-4">
-                        <h4 class="card-title ">Patient informatie</h4>
-                        <p class="card-category"> Gegevens van elk patient</p>
+                        <h4 class="card-title ">Patient Rookt</h4>
+                        <p class="card-category"> Gegevens van elk patient die rookt</p>
                         
                        </div>
                           <div class="col-md-4">
@@ -148,22 +148,22 @@ session_start();
                     <table class="table" id="myTable">
                       <thead class=" text-primary">
                         <th>
-                          traigenummer
+                          Traigenummer
                         </th>
                         <th>
-                          patient naam
+                          Patient Naam
                         </th>
                         <th>
-                          id nummer
+                          ID Nummer
                         </th>
                         <th>
-                          datum
+                          Datum
                         </th>
                         <th>
-                          rook
+                          Rook
                         </th>
                         <th>
-                          swab
+                          Swab
                         </th>
                         
                       </thead>

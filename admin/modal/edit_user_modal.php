@@ -2,8 +2,8 @@
         <div class="modal-dialog modal-dialog-centered ">
             <div class="modal-content">
                 <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">User bewerken</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel"></h4>
                 </div>
                 <div class="modal-body">
                  <?php
@@ -132,8 +132,8 @@
 
                 <div class="modal-footer">
                
-                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-                   <button type="submit" name="edituser" class="btn btn-primary">Save Data</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Sluiten</button>
+                   <button type="submit" name="edituser" class="btn btn-primary">Opslaan</button>
 				</form>
                 </div>
 				

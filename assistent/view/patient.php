@@ -129,7 +129,7 @@ session_start();
                 <div class="card-header card-header-primary" style="background: #29c2cc">
                   <div class="row">
                     <div class="col-md-4">
-                        <h4 class="card-title ">Patient informatie</h4>
+                        <h4 class="card-title ">Patient Gegevens</h4>
                         <p class="card-category"> Gegevens van elk patient</p>
                         
                        </div>
@@ -159,13 +159,13 @@ session_start();
                           Voornaam
                         </th>
                         <th>
-                          geboortedatum
+                          Geboortedatum
                         </th>
                         <th>
-                          geslacht
+                          Geslacht
                         </th>
                         <th>
-                          acties
+                          Acties
                         </th>
                       </thead>
                       <tbody>

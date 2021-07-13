@@ -27,7 +27,10 @@ if(isset($_POST['resultaat']))
                         }
                         else
                         {
-                             header("Location: ../view/resultaat.php?error= 2niet succesvol");
+                           echo '<script type = "text/javascript">';
+                           echo 'alert("Vul alles in!");';
+                           echo 'window.location.href = "../view/resultaat.php" ';
+                           echo '</script>';
                         }
 
                     }

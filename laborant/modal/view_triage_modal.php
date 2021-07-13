@@ -3,7 +3,7 @@
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                     <center><h3> Patient info</h3></center>
+                     <center><h3> Patient Triage weergave</h3></center>
                     <button type="button" class="close float-right" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modal-title" id="exampleModalLabel"></h4>
                 </div>
@@ -434,7 +434,7 @@
       </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Sluiten</button>
                 </div>
 				</form>
             </div>

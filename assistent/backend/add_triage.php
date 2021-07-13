@@ -55,7 +55,7 @@ if(isset($_POST['btn-add']))
         if($checkrows>0)
         {
                            echo '<script type = "text/javascript">';
-                           echo 'alert("triage lijst van deze patient bestaat al");';
+                           echo 'alert("Triage lijst van deze patient bestaat al");';
                            echo 'window.location.href = "../view/triage.php" ';
                            echo '</script>';
         }
@@ -69,7 +69,7 @@ if(isset($_POST['btn-add']))
                         if($query_run)
                         {
                            echo '<script type = "text/javascript">';
-                           echo 'alert("patient registratie succesvol");';
+                           echo 'alert("Triage registratie succesvol");';
                            echo 'window.location.href = "../view/triage.php" ';
                            echo '</script>';
                         }
