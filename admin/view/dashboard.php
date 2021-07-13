@@ -130,7 +130,7 @@ session_start();
                      <?php
                      date_default_timezone_set('America/Argentina/Buenos_Aires');
                     $date = date('y/m/d');
-                    $result = mysqli_query($conn, "SELECT COUNT(uitslag) as total FROM resultaat WHERE uitslag = 'positief' AND datum = '$date'");
+                    $result = mysqli_query($conn, "SELECT COUNT(uitslag) as total FROM resultaat WHERE uitslag = 'positief' AND datum_resultaat = '$date'");
                             $data = mysqli_fetch_assoc($result);
                             echo $data['total']; ?>    
                   </h3>
@@ -206,7 +206,7 @@ session_start();
                        <?php
                     date_default_timezone_set('America/Argentina/Buenos_Aires');
                     $date = date('y/m/d');
-                    $sql = "SELECT district.id_district,district.districtnaam AS districtnaam, Count(resultaat.uitslag) AS COUNT FROM district LEFT OUTER JOIN resultaat ON resultaat.id_district = district.id_district WHERE resultaat.uitslag = 'positief' AND resultaat.datum = '$date' GROUP BY districtnaam";
+                    $sql = "SELECT district.id_district,district.districtnaam AS districtnaam, Count(resultaat.uitslag) AS COUNT FROM district LEFT OUTER JOIN resultaat ON resultaat.id_district = district.id_district WHERE resultaat.uitslag = 'positief' AND resultaat.datum_resultaat = '$date' GROUP BY districtnaam";
                      
                       
                       $result = $conn->query($sql);

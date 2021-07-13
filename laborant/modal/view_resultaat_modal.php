@@ -81,7 +81,7 @@
           </div>
           <div class="col-md-6">
           <label for="datum" class="form-label">Datum </label>
-          <input type="date" class="form-control" name="datum" id="datum" value="<?php echo $erow['datum']; ?>" disabled>
+          <input type="date" class="form-control" name="datum" id="datum" value="<?php echo $erow['datum_resultaat']; ?>" disabled>
        </div>
           
 </div>

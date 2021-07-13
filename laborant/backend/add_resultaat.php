@@ -26,7 +26,7 @@ if(isset($_POST['insertdata']))
         }
         else
         {
-                $query = "INSERT INTO `resultaat`(`triagenummer`, `id_patient`, `id_gebruikers`, `id_district`, `datum`, `uitslag`, `overleg`, `ziek`, `omschrijving`, `transport`) 
+                $query = "INSERT INTO `resultaat`(`triagenummer`, `id_patient`, `id_gebruikers`, `id_district`, `datum_resultaat`, `uitslag`, `overleg`, `ziek`, `omschrijving`, `transport`) 
                          VALUES ('$triagenummer',(SELECT `id_patient` FROM triage WHERE triagenummer = $triagenummer),'$sesid','$district','$datum','$resultaat','$telefoon','$ziek','$omscrhrijving','$transport')";
                     
                     $query_run = mysqli_query($conn, $query);

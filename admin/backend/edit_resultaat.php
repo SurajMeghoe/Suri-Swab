@@ -14,7 +14,7 @@ if(isset($_POST['resultaat']))
         
         
 
-        $query = "UPDATE resultaat SET datum='$datum',uitslag='$uitslag',overleg='$telefoon',ziek='$ziek',omschrijving='$omscrhrijving',transport='$transport' WHERE swabnummer = '$id'";
+        $query = "UPDATE resultaat SET datum_resultaat='$datum',uitslag='$uitslag',overleg='$telefoon',ziek='$ziek',omschrijving='$omscrhrijving',transport='$transport' WHERE swabnummer = '$id'";
 
       $query_run = mysqli_query($conn, $query);
 
