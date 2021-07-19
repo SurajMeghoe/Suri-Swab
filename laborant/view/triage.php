@@ -172,7 +172,9 @@ session_start();
                         <th>
                           Patient Rook
                         </th>
-                        
+                        <th>
+                          Acties
+                        </th>
                         
                       </thead>
                       <tbody>

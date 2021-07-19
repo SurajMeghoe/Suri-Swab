@@ -46,12 +46,12 @@
               <form action="./admin/backend/loginprocess.php" method="post">
                   <div class="form-row">
                       <div class="col-lg-7">
-                           <input type="text" name="username"  value="<?php if(isset($_GET['username']))echo(htmlspecialchars($_GET['username'])) ?>" placeholder=" User Name" class="form-control my-3 p-4" >
+                           <input type="text" name="username"  value="<?php if(isset($_GET['username']))echo(htmlspecialchars($_GET['username'])) ?>" placeholder=" Usernaam" class="form-control my-3 p-4" >
                       </div>
                   </div>
                   <div class="form-row">
                     <div class="col-lg-7">
-                       <input type="password" name="password" placeholder=" Password" class="form-control my-3 p-4" >
+                       <input type="password" name="password" placeholder="Wachtwoord" class="form-control my-3 p-4" >
                     </div>
                 </div>
                 

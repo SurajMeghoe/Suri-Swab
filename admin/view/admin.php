@@ -50,7 +50,7 @@ session_start();
           <li class="nav-item active">
             <a class="nav-link" href="./admin.php" style="background-color: #29c2cc">
               <i class="material-icons">admin_panel_settings</i>
-              <p>user registration</p>
+              <p>user registratie</p>
             </a>
           </li>
           <li class="nav-item ">
