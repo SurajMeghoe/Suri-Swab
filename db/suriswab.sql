@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 26 jul 2021 om 20:12
+-- Gegenereerd op: 27 jul 2021 om 00:57
 -- Serverversie: 10.4.11-MariaDB
 -- PHP-versie: 7.4.4
 
@@ -31,6 +31,22 @@ CREATE TABLE `district` (
   `id_district` int(11) NOT NULL,
   `districtnaam` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `district`
+--
+
+INSERT INTO `district` (`id_district`, `districtnaam`) VALUES
+(1, 'paramaribo'),
+(2, 'wanica'),
+(3, 'nickerie'),
+(4, 'coronie'),
+(5, 'saramacca'),
+(6, 'commewijne'),
+(7, 'marowijne'),
+(8, 'para'),
+(9, 'brokopondo'),
+(10, 'sipaliwini');
 
 -- --------------------------------------------------------
 
@@ -80,6 +96,13 @@ CREATE TABLE `patient` (
   `huisarts` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Gegevens worden geëxporteerd voor tabel `patient`
+--
+
+INSERT INTO `patient` (`id_patient`, `id_gebruikers`, `id_district`, `naam`, `voornaam`, `nationaliteit`, `id_nummer`, `geslacht`, `adres`, `geboortedatum`, `datum`, `beroep`, `huisarts`) VALUES
+(61, 2, 1, 'test patient', 'test patient', 'surinaamse', 'ft000456', 'man', 'fred derby straat #96', '2000-02-08', '2021-07-26', 'taxi man', 'dr aria');
+
 -- --------------------------------------------------------
 
 --
@@ -99,6 +122,13 @@ CREATE TABLE `resultaat` (
   `omschrijving` text NOT NULL,
   `transport` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `resultaat`
+--
+
+INSERT INTO `resultaat` (`swabnummer`, `triagenummer`, `id_patient`, `id_gebruikers`, `id_district`, `datum_resultaat`, `uitslag`, `overleg`, `ziek`, `omschrijving`, `transport`) VALUES
+(141, 100, 61, 3, 1, '2014-12-19', 'positief', 'ja', 'ja', 'positief', 'ja');
 
 -- --------------------------------------------------------
 
@@ -148,6 +178,13 @@ CREATE TABLE `triage` (
   `dreuk` date NOT NULL,
   `dsymptomen` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `triage`
+--
+
+INSERT INTO `triage` (`triagenummer`, `id_patient`, `id_gebruikers`, `datum_traige`, `ziekten`, `contact_naam`, `contact_datum`, `contact_omschrijving`, `contact`, `bewezen`, `contact_ziek`, `roken`, `hoesten`, `kortademig`, `keelpijn`, `koorts`, `rillingen`, `hoofdpijn`, `spierpijn`, `misselijkheid`, `diarree`, `Vsmaak`, `Vreuk`, `Asymp`, `omschrijving`, `Zindruk`, `Momschrijving`, `swab`, `dhoesten`, `dkortademigheid`, `dkeelpijn`, `dkoorts`, `drillingen`, `dhoofdpijn`, `dspierpijn`, `dmisselijkheid`, `ddiarree`, `dsmaak`, `dreuk`, `dsymptomen`) VALUES
+(100, 61, 2, '1997-02-02', 'triage test', 'triage test', '1999-07-26', ' triage test', ' triage test', 'ja', 'ja', 'ja', 'nee', 'nee', 'nee', 'nee', 'nee', 'nee', 'nee', 'ja', 'nee', 'ja', 'nee', 'ja', 'triage test', 'ja', 'triage test', 'ja', '1970-12-04', '2020-11-14', '2014-03-18', '1975-08-16', '1970-05-04', '1975-10-20', '1992-11-23', '2019-06-26', '1979-07-14', '1992-09-13', '2021-04-17', '2016-05-15');
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -200,7 +237,7 @@ ALTER TABLE `triage`
 -- AUTO_INCREMENT voor een tabel `district`
 --
 ALTER TABLE `district`
-  MODIFY `id_district` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_district` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT voor een tabel `gebruikers`
@@ -212,19 +249,19 @@ ALTER TABLE `gebruikers`
 -- AUTO_INCREMENT voor een tabel `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `id_patient` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_patient` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT voor een tabel `resultaat`
 --
 ALTER TABLE `resultaat`
-  MODIFY `swabnummer` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `swabnummer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
 
 --
 -- AUTO_INCREMENT voor een tabel `triage`
 --
 ALTER TABLE `triage`
-  MODIFY `triagenummer` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `triagenummer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- Beperkingen voor geëxporteerde tabellen
