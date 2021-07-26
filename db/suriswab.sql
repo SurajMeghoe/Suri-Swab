@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 13 jul 2021 om 15:27
+-- Gegenereerd op: 26 jul 2021 om 20:12
 -- Serverversie: 10.4.11-MariaDB
 -- PHP-versie: 7.4.4
 
@@ -48,6 +48,15 @@ CREATE TABLE `gebruikers` (
   `Uvoornaam` varchar(30) NOT NULL,
   `geboortedatum` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `gebruikers`
+--
+
+INSERT INTO `gebruikers` (`id_gebruiker`, `role`, `usernaam`, `password`, `id_district`, `Unaam`, `Uvoornaam`, `geboortedatum`) VALUES
+(1, 'admin', 'admin', 'admin', 1, 'admin', 'admin', '2011-06-14'),
+(2, 'assistent', 'assistent', 'assistent', 1, 'assistent', 'assistent', '2021-07-05'),
+(3, 'laborant', 'laborant', 'laborant', 1, 'laborant', 'laborant', '2021-07-01');
 
 -- --------------------------------------------------------
 
@@ -197,7 +206,7 @@ ALTER TABLE `district`
 -- AUTO_INCREMENT voor een tabel `gebruikers`
 --
 ALTER TABLE `gebruikers`
-  MODIFY `id_gebruiker` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_gebruiker` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
 
 --
 -- AUTO_INCREMENT voor een tabel `patient`
