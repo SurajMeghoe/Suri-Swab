@@ -41,7 +41,7 @@ if(isset($_POST['insertdata']))
                         else
                         {
                            echo '<script type = "text/javascript">';
-                           echo 'alert("Patient nummer verkeerd of patient bestaat niet");';
+                           echo 'alert("triage nummer verkeerd of triage lijst bestaat niet");';
                            echo 'window.location.href = "../view/resultaat.php" ';
                            echo '</script>';
                         }
